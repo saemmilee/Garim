@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "893313846108",
+    "project_id": "garim-4a9a2",
+    "storage_bucket": "garim-4a9a2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893313846108:android:0cde1b4800d4f199c80f99",
+        "android_client_info": {
+          "package_name": "com.inhatc.garim"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893313846108-3vusisi8qtkb2stgts7m7ntv2gfg2ge6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOmawZiXvcQ7G25hqGaxLGwDEH82mF7fU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893313846108-3vusisi8qtkb2stgts7m7ntv2gfg2ge6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
