@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="searchCountryDaegu">
+        <item>------</item>
+        <item>main office</item>
+        <item>Nam-gu</item>
+        <item>Dalseo-gu</item>
+        <item>Dalseong-gun</item>
+        <item>Dong-gu</item>
+        <item>Buk-gu</item>
+        <item>Seo-gu</item>
+        <item>Suseong-gu</item>
+        <item>Jung-gu</item>
+    </string-array>
+</resources>

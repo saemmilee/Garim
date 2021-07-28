@@ -16,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
         // sm
         // firebaseDatabase Test
-        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseReference = firebaseDatabase.getReference();
-        databaseReference.child("message").push().setValue("2");
+//        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+//        DatabaseReference databaseReference = firebaseDatabase.getReference();
+//        databaseReference.child("message").push().setValue("2");
 
     }
 }

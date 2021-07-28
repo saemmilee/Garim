@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="searchCountryChungcheongbukdo">
+        <item>------</item>
+        <item>main office</item>
+        <item>Cheongju-si</item>
+        <item>Goesan-gun</item>
+        <item>Danyang-gun</item>
+        <item>Boeun-gun</item>
+        <item>Yeongdong-gun</item>
+        <item>Okcheon-gun</item>
+        <item>Eumseong-gun</item>
+        <item>Jecheon-si</item>
+        <item>Jeungpyeong-gun</item>
+        <item>Jincheon-gun</item>
+        <item>Chungju-si</item>
+    </string-array>
+</resources>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="searchCountryBusan">
+        <item>------</item>
+        <item>main office</item>
+        <item>Gangseo-gu</item>
+        <item>Guemjung-gu</item>
+        <item>Gijang-gun</item>
+        <item>Nam-gu</item>
+        <item>Dong-gu</item>
+        <item>Dongrae-gu</item>
+        <item>Busanjin-gu</item>
+        <item>Buk-gu</item>
+        <item>Sasang-gu</item>
+        <item>Saha-gu</item>
+        <item>Seo-gu</item>
+        <item>Suyeong-gu</item>
+        <item>Yeonje-gu</item>
+        <item>Yeongdo-gu</item>
+        <item>Jung-gu</item>
+        <item>Haeundae-gu</item>
+    </string-array>
+</resources>

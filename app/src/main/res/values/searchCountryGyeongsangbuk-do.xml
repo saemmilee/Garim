@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="searchCountryGyeongsangbukdo">
+        <item>------</item>
+        <item>main office</item>
+        <item>Pohang-si</item>
+        <item>Gyeongsan-si</item>
+        <item>Gyeongju-si</item>
+        <item>Goryeong-gun</item>
+        <item>Gumi-si</item>
+        <item>Gunwi-gun</item>
+        <item>Gimcheon-si</item>
+        <item>Mungyeong-si</item>
+        <item>Bonghwa-gun</item>
+        <item>Sangju-si</item>
+        <item>Seongju-gun</item>
+        <item>Andong-si</item>
+        <item>Yeongdeok-gun</item>
+        <item>Yeongyang-gun</item>
+        <item>Yeongju-si</item>
+        <item>Yeongcheon-si</item>
+        <item>Yecheon-gun</item>
+        <item>Ulleung-gun</item>
+        <item>Uljin-gun</item>
+        <item>Uiseong-gun</item>
+        <item>Cheongdo-gun</item>
+        <item>Cheongsong-gun</item>
+        <item>Chilgok-gun</item>
+    </string-array>
+</resources>

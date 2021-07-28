@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="searchCountryGyeonggido">
+        <item>------</item>
+        <item>main office</item>
+        <item>Goyang-si</item>
+        <item>Seongnam-si</item>
+        <item>Suwon-si</item>
+        <item>Ansan-si</item>
+        <item>Anyang-si</item>
+        <item>Yongin-si</item>
+        <item>Gapyeong-gun</item>
+        <item>Gwacheon-si</item>
+        <item>Gwangmyeong-si</item>
+        <item>Gwangju-si</item>
+        <item>Guri-si</item>
+        <item>Gunpo-si</item>
+        <item>Gimpo-si</item>
+        <item>Namyangju-si</item>
+        <item>Dongducheon-si</item>
+        <item>Bucheon-si</item>
+        <item>Siheung-si</item>
+        <item>Anseong-si</item>
+        <item>Yangju-si</item>
+        <item>Yangpyeong-gun</item>
+        <item>Yeoju-si</item>
+        <item>Yeoncheon-gun</item>
+        <item>Osan-si</item>
+        <item>Uiwang-si</item>
+        <item>Uijeongbu-si</item>
+        <item>Icheon-si</item>
+        <item>Paju-si</item>
+        <item>Pyeongtaek-si</item>
+        <item>Pocheon-si</item>
+        <item>Hanam-si</item>
+        <item>Hwaseong-si</item>
+    </string-array>
+</resources>
