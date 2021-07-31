@@ -15,7 +15,7 @@ public class SplashActivity extends Activity {
             e.printStackTrace();
         }
 
-        Intent intent = new Intent(this, OrdinanceStatusActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
 
         finish();
