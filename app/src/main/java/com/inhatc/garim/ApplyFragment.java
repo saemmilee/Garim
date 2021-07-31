@@ -8,9 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MypageFragment extends Fragment {
+public class ApplyFragment extends Fragment {
 
-//    public MypageFragment() {
+//    public WriteFragment() {
 //        // Required empty public constructor
 //    }
 

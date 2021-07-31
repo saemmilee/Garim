@@ -4,25 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/tabHome"
-        app:showAsAction="always"
-        android:enabled="true"
-        android:icon="@drawable/home"
-        android:title="home">
-    </item>
-
-    <item
-        android:id="@+id/tabList"
+        android:id="@+id/tabOrdinanceStatus"
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/list"
-        android:title="list" />
+        android:title="list">
+    </item>
+
     <item
-        android:id="@+id/tabWrite"
+        android:id="@+id/tabApply"
         app:showAsAction="always"
         android:enabled="true"
         android:icon="@drawable/write"
-        android:title="write"/>
+        android:title="apply"/>
 
     <item
         android:id="@+id/tabMypage"
