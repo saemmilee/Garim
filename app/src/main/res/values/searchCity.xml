@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="searchCity">
+        <item>------</item>
+        <item>Seoul</item>
+        <item>Busan</item>
+        <item>Daegu</item>
+        <item>Incheon</item>
+        <item>Gwangju</item>
+        <item>Daejeon</item>
+        <item>Ulsan</item>
+        <item>Sejong</item>
+        <item>Gyeonggi-do</item>
+        <item>Gangwon-do</item>
+        <item>Chungcheongbuk-do</item>
+        <item>Chungcheongnam-do</item>
+        <item>Jeollabuk-do</item>
+        <item>Jeollanam-do</item>
+        <item>Gyeongsangbuk-do</item>
+        <item>Gyeongsangnam-do</item>
+        <item>Jeju-do</item>
+    </string-array>
+</resources>

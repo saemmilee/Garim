@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="searchCountryUlsan">
+        <item>------</item>
+        <item>main office</item>
+        <item>Nam-gu</item>
+        <item>Dong-gu</item>
+        <item>Buk-gu</item>
+        <item>Ulju-gun</item>
+        <item>Jung-gu</item>
+    </string-array>
+</resources>
