@@ -129,7 +129,7 @@
         android:layout_margin="40dp"
         android:background="#21427D"
         android:textColor="#FFFFFF"
-        android:text="Sign Up"
+        android:text="Next"
         android:textSize="20dp"/>
 
 </LinearLayout>

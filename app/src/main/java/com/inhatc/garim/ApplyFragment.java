@@ -17,7 +17,7 @@ public class ApplyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_ordinancestatus, container, false);
+        View v = inflater.inflate(R.layout.fragment_apply, container, false);
         // Inflate the layout for this fragment
         return v;
     }

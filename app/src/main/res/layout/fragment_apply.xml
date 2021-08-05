@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
     tools:context=".ApplyFragment">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -16,8 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/btnBack"
@@ -29,7 +26,7 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="A bill of ordinances"
@@ -41,79 +38,89 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
             android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/rbtnEnactment"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enactment"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="Enactment" />
 
             <RadioButton
                 android:id="@+id/rbtnAbolition"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abolition"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="Abolition" />
 
             <RadioButton
                 android:id="@+id/rbtnRevision"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Revision"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="Revision" />
         </RadioGroup>
 
         <EditText
             android:id="@+id/txtContent1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edge"
             android:hint="Ordinance Subject to Claim \nand Purpose of Claim"
             android:inputType="textMultiLine"
             android:lines="8"
             android:maxLines="15"
             android:minLines="6"
+            android:padding="10dp"
             android:scrollbars="vertical" />
 
         <EditText
             android:id="@+id/txtContent2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:hint="Reason"
+            android:layout_margin="20dp"
+            android:background="@drawable/edge"
+            android:hint=" Reason"
             android:inputType="textMultiLine"
             android:lines="8"
             android:maxLines="8"
             android:minLines="3"
+            android:padding="10dp"
             android:scrollbars="vertical" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/txtFile"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="top"
-                android:layout_marginTop="25dp"
                 android:layout_weight="1"
+                android:background="@drawable/edge"
                 android:ems="10"
-                android:hint="Please submit the attached file."
+                android:hint=" Please submit the attached file."
                 android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/btnFile"
                 android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginTop="20dp"
                 android:background="@color/navy"
-                android:textColor="#FFFFFF"
-                android:text="Submit" />
+                android:text="Submit"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
 
         <Button
@@ -121,11 +128,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="20dp"
             android:background="@color/navy"
-            android:layout_margin="10dp"
             android:text="Apply"
             android:textColor="#FFFFFF"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -139,7 +147,7 @@
                 app:itemIconTint="#FFFFFF"
                 app:itemTextColor="#f6d170"
                 app:labelVisibilityMode="labeled"
-                app:menu="@menu/bottom_menu"/>
+                app:menu="@menu/bottom_menu" />
 
         </RelativeLayout>
 
