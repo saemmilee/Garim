@@ -64,10 +64,12 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btnSignature"
+                android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/chevron"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/chevron"
                 android:layout_gravity="center_vertical" />
 
         </LinearLayout>
@@ -108,10 +110,12 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/btnStatus"
+                android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/chevron"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/chevron"
                 android:layout_gravity="center_vertical" />
 
         </LinearLayout>
