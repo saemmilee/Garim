@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    OrdinanceStatusFragment ordinanceStatusFragment;
-    ApplyFragment applyFragment;
-    MypageFragment mypageFragment;
+    private OrdinanceStatusFragment ordinanceStatusFragment;
+    private ApplyFragment applyFragment;
+    private MypageFragment mypageFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
