@@ -1,5 +1,6 @@
 package com.inhatc.garim;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -19,13 +20,14 @@ public class ElectronicSignatureActivity extends AppCompatActivity {
         mypageFragment = new MypageFragment();
         btnBack = (ImageButton)findViewById(R.id.btnBack);
 
-        //Activity > Fragment
-//        btnBack.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getSupportFragmentManager().beginTransaction().
-//                        replace(R.id.fragment_container, mypageFragment).commit();
-//            }
-//        });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("move", "backMypage");
+                startActivity(intent);
+            }
+        });
     }
 }

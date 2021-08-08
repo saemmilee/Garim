@@ -1,5 +1,6 @@
 package com.inhatc.garim;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -23,7 +24,15 @@ public class MainActivity extends AppCompatActivity {
         applyFragment = new ApplyFragment();
         mypageFragment = new MypageFragment();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, ordinanceStatusFragment).commit();
+        Intent mainIntent = getIntent();
+        String getMove = mainIntent.getStringExtra("move");
+
+        if("backMypage".equals(getMove)) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, mypageFragment).commit();
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, ordinanceStatusFragment).commit();
+        }
+
         BottomNavigationView bottom_menu = findViewById(R.id.bottom_menu);
         bottom_menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
