@@ -222,8 +222,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="278dp"
-        android:layout_margin="20dp"
+        android:layout_height="300dp"
+        android:layout_margin="10dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -251,6 +251,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="5dp"
+                android:textColor="@color/black"
                 android:text="Jeonju City Waste Management Ordinance"
                 android:textAlignment="center"
                 android:textSize="20dp"
@@ -259,14 +260,15 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="212dp"
+            android:layout_height="237dp"
             android:background="@drawable/edge">
 
             <TextView
                 android:id="@+id/txtContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:textColor="@color/black"
+                android:text="내이름은 홍주희\n\n안녕하세요\n스크롤바 테스트에요\n\n내려봐\n\n\n\n\n굿굿\n\n성공❤"
                 android:textSize="18dp" />
         </ScrollView>
     </LinearLayout>
@@ -275,8 +277,8 @@
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:text="Electronic Sign" />
 
 </LinearLayout>

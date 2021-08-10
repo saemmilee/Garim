@@ -22,6 +22,8 @@
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".ElectronicSignatureActivity"></activity>
         <activity android:name=".ApplicationStatusActivity"></activity>
+        <activity android:name=".SignActivity"></activity>
+        <activity android:name=".SigninfoActivity"></activity>
     </application>
 
 </manifest>

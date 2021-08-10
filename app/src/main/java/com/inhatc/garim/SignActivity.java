@@ -13,6 +13,7 @@ public class SignActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign);
     }
+    
 
     public void onClickSigninfo(View view) {
         Intent intent = new Intent(SignActivity.this, SigninfoActivity.class);
