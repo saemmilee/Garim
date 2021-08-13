@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'com.google.gms.google-services'
 }
 
 android {
@@ -42,3 +41,5 @@ dependencies {
     //Add LakuePagingButton Library
     implementation 'com.github.lakue119:LakuePagingButton:1.0.0'
 }
+
+apply plugin: 'com.google.gms.google-services'
