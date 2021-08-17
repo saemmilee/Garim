@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="statusSignature">
-        <item>------</item>
+        <item>status</item>
         <item>in progress</item>
         <item>complete</item>
     </string-array>

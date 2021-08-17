@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'com.google.gms.google-services'
 }
 
 android {
@@ -9,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.inhatc.garim"
-        minSdkVersion 28
+        minSdkVersion 27
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -45,4 +44,8 @@ dependencies {
     //jh Firebase 인증 Android 라이브러리 종속 항목 선언
     implementation platform('com.google.firebase:firebase-bom:28.3.0')
     implementation 'com.google.firebase:firebase-auth'
+
 }
+
+apply plugin: 'com.google.gms.google-services'
+
