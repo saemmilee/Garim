@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.inhatc.garim"
-        minSdkVersion 28
+        minSdkVersion 27
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -41,4 +41,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     //Add LakuePagingButton Library
     implementation 'com.github.lakue119:LakuePagingButton:1.0.0'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '7.0'
 }
