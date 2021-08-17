@@ -9,8 +9,6 @@
     tools:context=".OrdinanceStatusFragment">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
@@ -190,6 +188,14 @@
             android:layout_height="300dp"
             android:descendantFocusability="blocksDescendants" >
 
+                <Button
+                    android:id="@+id/btnProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="in progress"
+                    android:textSize="7dp" />
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
