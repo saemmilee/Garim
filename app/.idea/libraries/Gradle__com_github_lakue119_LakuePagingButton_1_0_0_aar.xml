@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.lakue119:LakuePagingButton:1.0.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/29c505f6fc78d9adafecb8f0b84d350d/jetified-LakuePagingButton-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/29c505f6fc78d9adafecb8f0b84d350d/jetified-LakuePagingButton-1.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/29c505f6fc78d9adafecb8f0b84d350d/jetified-LakuePagingButton-1.0.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.lakue119/LakuePagingButton/1.0.0/3c0a67a04789d8d007166bd09c4d82a0ea1d94f7/LakuePagingButton-1.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
