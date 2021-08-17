@@ -16,9 +16,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TableRow;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,6 +32,7 @@ public class OrdinanceStatusFragment extends Fragment {
     private Context context;
     private Spinner searchYear;
     private Spinner searchCity;
+    private ArrayAdapter<String> arrayAdapter;
     private Spinner searchCountry;
     private Spinner statusSignature;
     private String selectedCity;
@@ -46,8 +44,8 @@ public class OrdinanceStatusFragment extends Fragment {
     private FirebaseDatabase database;
     private DatabaseReference databaseReference;
 
-    public View onCreateView(@NonNull LayoutInflater inflater, @NonNull  ViewGroup container,
-                             @NonNull  Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @NonNull ViewGroup container,
+                             @NonNull Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_ordinancestatus, container, false);
@@ -66,6 +64,7 @@ public class OrdinanceStatusFragment extends Fragment {
 
         database = FirebaseDatabase.getInstance();  //firebase db연동
         databaseReference = database.getReference("ordinance");  //db 테이블 연결
+
 
         //년도
         ArrayAdapter yearAdapter = ArrayAdapter.createFromResource(
@@ -106,27 +105,7 @@ public class OrdinanceStatusFragment extends Fragment {
             }
         });
 
-        if("".equals(selectedCity)) {
-            Toast.makeText(context, "selectedCity:: null", Toast.LENGTH_SHORT).show();
-        }else if("Seoul".equals(selectedCity)) {
-            //시군구
-            ArrayAdapter countryAdapter = ArrayAdapter.createFromResource(
-                    context, R.array.searchCountrySeoul, android.R.layout.simple_spinner_dropdown_item);
-            countryAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-            searchCountry.setAdapter(countryAdapter);
-
-            searchCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-                //이 오버라이드 메소드에서 position은 몇번째 값이 클릭됐는지 알 수 있습니다.
-                //getItemAtPosition(position)를 통해서 해당 값을 받아올수있습니다.
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) { }
-            });
-        }
+        initAddressSpinner();
 
         //서명 현황
         ArrayAdapter signatureAdapter = ArrayAdapter.createFromResource(
@@ -143,7 +122,8 @@ public class OrdinanceStatusFragment extends Fragment {
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) { }
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -153,7 +133,7 @@ public class OrdinanceStatusFragment extends Fragment {
                 //firebase data받아오기
                 arrayList.clear();  //기존배열 초기화
 
-                for(DataSnapshot snapshot: dataSnapshot.getChildren()) {  //반복문으로 데이터리스트 추출
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {  //반복문으로 데이터리스트 추출
 
                     Ordinance ordinanceList = snapshot.getValue(Ordinance.class);  //만들어뒀던 객체에 데이터 담기
 
@@ -178,5 +158,95 @@ public class OrdinanceStatusFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+
+    private void initAddressSpinner() {
+        searchCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // 시군구, 동의 스피너를 초기화한다.
+                switch (position) {
+                    case 0:
+                        searchCountry.setAdapter(null);
+                        break;
+                    case 1:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountrySeoul);
+                        break;
+                    case 2:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryBusan);
+                        break;
+                    case 3:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryDaegu);
+                        break;
+                    case 4:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryIncheon);
+                        break;
+                    case 5:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryGwangju);
+                        break;
+                    case 6:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryDaejeon);
+                        break;
+                    case 7:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryUlsan);
+                        break;
+                    case 8:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountrySejong);
+                        break;
+                    case 9:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryGyeonggido);
+                        break;
+                    case 10:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryGangwondo);
+                        break;
+                    case 11:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryChungcheongbukdo);
+                        break;
+                    case 12:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryCungcheongnamdo);
+
+                        break;
+                    case 13:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryJeollabukdo);
+                        break;
+                    case 14:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryJeollanamdo);
+                        break;
+                    case 15:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryGyeongsangbukdo);
+                        break;
+                    case 16:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryGyeongsangnamdo);
+                        break;
+                    case 17:
+                        setSearchCountrySpinnerAdapterItem(R.array.searchCountryJejudo);
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+    }
+
+    private void setSearchCountrySpinnerAdapterItem(int array_resource) {
+        if (arrayAdapter != null) {
+            searchCountry.setAdapter(null);
+            arrayAdapter = null;
+        }
+
+        if (searchCity.getSelectedItemPosition() > 1) {
+            searchCountry.setAdapter(null);
+        }
+
+        arrayAdapter = new ArrayAdapter<String>(context,
+                android.R.layout.simple_spinner_item,
+                (String[]) getResources().getStringArray(array_resource));
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        searchCountry.setAdapter(arrayAdapter);
     }
 }

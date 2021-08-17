@@ -34,27 +34,50 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:gravity="center">
 
-                <Spinner
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/searchYear" />
+                    android:orientation="horizontal"
+                    android:weightSum="8"
+                    android:gravity="center">
 
-                <Spinner
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/searchCity" />
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:id="@+id/searchYear" />
 
-                <Spinner
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/searchCountry" />
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:id="@+id/searchCity" />
 
-                <Spinner
-                    android:layout_width="wrap_content"
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/statusSignature" />
+                    android:orientation="horizontal"
+                    android:weightSum="8"
+                    android:gravity="center">
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:id="@+id/searchCountry" />
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:id="@+id/statusSignature" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

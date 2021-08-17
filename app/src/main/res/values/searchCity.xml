@@ -20,4 +20,315 @@
         <item>Gyeongsangnam-do</item>
         <item>Jeju-do</item>
     </string-array>
+
+    <string-array name="searchCountrySeoul">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Gangnam-gu</item>
+        <item>Gangdong-gu</item>
+        <item>Gangbuk-gu</item>
+        <item>Gangseo-gu</item>
+        <item>Gwanak-gu</item>
+        <item>Gwangjin-gu</item>
+        <item>Guro-gu</item>
+        <item>Geumcheon-gu</item>
+        <item>Nowon-gu</item>
+        <item>Dobong-gu</item>
+        <item>Dongdaemun-gu</item>
+        <item>Dongjak-gu</item>
+        <item>Mapo-gu</item>
+        <item>Seodaemun-gu</item>
+        <item>Seocho-gu</item>
+        <item>Seongdong-gu</item>
+        <item>Seongbuk-gu</item>
+        <item>Songpa-gu</item>
+        <item>Yangcheon-gu</item>
+        <item>Yeongdeungpo-gu</item>
+        <item>Yongsan-gu</item>
+        <item>Eunpyeong-gu</item>
+        <item>Jongno-gu</item>
+        <item>Jung-gu</item>
+        <item>Jungnang-gu</item>
+    </string-array>
+
+    <string-array name="searchCountryBusan">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Gangseo-gu</item>
+        <item>Guemjung-gu</item>
+        <item>Gijang-gun</item>
+        <item>Nam-gu</item>
+        <item>Dong-gu</item>
+        <item>Dongrae-gu</item>
+        <item>Busanjin-gu</item>
+        <item>Buk-gu</item>
+        <item>Sasang-gu</item>
+        <item>Saha-gu</item>
+        <item>Seo-gu</item>
+        <item>Suyeong-gu</item>
+        <item>Yeonje-gu</item>
+        <item>Yeongdo-gu</item>
+        <item>Jung-gu</item>
+        <item>Haeundae-gu</item>
+    </string-array>
+
+    <string-array name="searchCountryDaegu">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Nam-gu</item>
+        <item>Dalseo-gu</item>
+        <item>Dalseong-gun</item>
+        <item>Dong-gu</item>
+        <item>Buk-gu</item>
+        <item>Seo-gu</item>
+        <item>Suseong-gu</item>
+        <item>Jung-gu</item>
+    </string-array>
+
+    <string-array name="searchCountryIncheon">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Ganghwa-gun</item>
+        <item>Gyeyang-gun</item>
+        <item>Nam-gu</item>
+        <item>Namdong-gu</item>
+        <item>Dong-gu</item>
+        <item>Bupyeong-gu</item>
+        <item>Seo-gu</item>
+        <item>Yeonsu-gu</item>
+        <item>Ongjin-gun</item>
+        <item>Dong-gu</item>
+    </string-array>
+
+    <string-array name="searchCountryGwangju">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Gwangsan-gu</item>
+        <item>Nam-gu</item>
+        <item>Dong-gu</item>
+        <item>Buk-gu</item>
+        <item>Seo-gu</item>
+    </string-array>
+
+    <string-array name="searchCountryDaejeon">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Dadeok-gu</item>
+        <item>Dong-gu</item>
+        <item>Seo-gu</item>
+        <item>Yooseong-gu</item>
+        <item>Jung-gu</item>
+    </string-array>
+
+    <string-array name="searchCountryUlsan">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Nam-gu</item>
+        <item>Dong-gu</item>
+        <item>Buk-gu</item>
+        <item>Ulju-gun</item>
+        <item>Jung-gu</item>
+    </string-array>
+
+    <string-array name="searchCountrySejong">
+        <item>Country</item>
+        <item>main office</item>
+    </string-array>
+
+    <string-array name="searchCountryGyeonggido">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Goyang-si</item>
+        <item>Seongnam-si</item>
+        <item>Suwon-si</item>
+        <item>Ansan-si</item>
+        <item>Anyang-si</item>
+        <item>Yongin-si</item>
+        <item>Gapyeong-gun</item>
+        <item>Gwacheon-si</item>
+        <item>Gwangmyeong-si</item>
+        <item>Gwangju-si</item>
+        <item>Guri-si</item>
+        <item>Gunpo-si</item>
+        <item>Gimpo-si</item>
+        <item>Namyangju-si</item>
+        <item>Dongducheon-si</item>
+        <item>Bucheon-si</item>
+        <item>Siheung-si</item>
+        <item>Anseong-si</item>
+        <item>Yangju-si</item>
+        <item>Yangpyeong-gun</item>
+        <item>Yeoju-si</item>
+        <item>Yeoncheon-gun</item>
+        <item>Osan-si</item>
+        <item>Uiwang-si</item>
+        <item>Uijeongbu-si</item>
+        <item>Icheon-si</item>
+        <item>Paju-si</item>
+        <item>Pyeongtaek-si</item>
+        <item>Pocheon-si</item>
+        <item>Hanam-si</item>
+        <item>Hwaseong-si</item>
+    </string-array>
+
+    <string-array name="searchCountryGangwondo">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Ganneung-si</item>
+        <item>Gosung0gun</item>
+        <item>Donghae-si</item>
+        <item>Samcheok-si</item>
+        <item>Sokcho-si</item>
+        <item>Yanggu-gun</item>
+        <item>Yangyang-gun</item>
+        <item>Yeongwol-gun</item>
+        <item>Wonju-si</item>
+        <item>Inje-gun</item>
+        <item>Jungsun-gun</item>
+        <item>Cheolwon-gun</item>
+        <item>Chuncheon-si</item>
+        <item>Taebaek-si</item>
+        <item>Pyeongchang-gun</item>
+        <item>Hongcheon-gun</item>
+        <item>Hwacheon-gun</item>
+        <item>Hoengseong-gun</item>
+    </string-array>
+
+    <string-array name="searchCountryChungcheongbukdo">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Cheongju-si</item>
+        <item>Goesan-gun</item>
+        <item>Danyang-gun</item>
+        <item>Boeun-gun</item>
+        <item>Yeongdong-gun</item>
+        <item>Okcheon-gun</item>
+        <item>Eumseong-gun</item>
+        <item>Jecheon-si</item>
+        <item>Jeungpyeong-gun</item>
+        <item>Jincheon-gun</item>
+        <item>Chungju-si</item>
+    </string-array>
+
+    <string-array name="searchCountryCungcheongnamdo">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Cheonan-si</item>
+        <item>Gyereung-si</item>
+        <item>Gongju-si</item>
+        <item>Geumsan-gun</item>
+        <item>Nonsan-si</item>
+        <item>Dangjin-si</item>
+        <item>Boryeong-si</item>
+        <item>Buyeo-gun</item>
+        <item>Seosan-si</item>
+        <item>Seocheon-gun</item>
+        <item>Asan-si</item>
+        <item>Yesan-gun</item>
+        <item>Cheongyang-gun</item>
+        <item>Taean-gun</item>
+        <item>Hongseong-gun</item>
+    </string-array>
+
+    <string-array name="searchCountryJeollabukdo">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Jeonju-si</item>
+        <item>Gochang-gun</item>
+        <item>Gunsan-si</item>
+        <item>Gimje-si</item>
+        <item>Namwon-si</item>
+        <item>Muju-gun</item>
+        <item>Buan-gun</item>
+        <item>Sunchang-gun</item>
+        <item>Wanju-gun</item>
+        <item>Iksan-si</item>
+        <item>Imsil-gun</item>
+        <item>Jangsu-gun</item>
+        <item>Jeongeup-si</item>
+        <item>Jinan-gun</item>
+    </string-array>
+
+    <string-array name="searchCountryJeollanamdo">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Gangjin-gun</item>
+        <item>Goheung-gun</item>
+        <item>Gokseong-gun</item>
+        <item>Gwangyang-si</item>
+        <item>Gurye-gun</item>
+        <item>Naju-si</item>
+        <item>Dangyang-gun</item>
+        <item>Mokpo-si</item>
+        <item>Muan-gun</item>
+        <item>Boseong-gun</item>
+        <item>Suncheon-si</item>
+        <item>Sinan-gun</item>
+        <item>Yeosu-si</item>
+        <item>Yeongwang-gun</item>
+        <item>Yeongan-gun</item>
+        <item>Wanado-gun</item>
+        <item>Jangsung-gun</item>
+        <item>Jangheung-gun</item>
+        <item>Jindo-gun</item>
+        <item>Hampyeong-gun</item>
+        <item>Haenam-gun</item>
+        <item>Hwasun-gun</item>
+    </string-array>
+
+    <string-array name="searchCountryGyeongsangbukdo">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Pohang-si</item>
+        <item>Gyeongsan-si</item>
+        <item>Gyeongju-si</item>
+        <item>Goryeong-gun</item>
+        <item>Gumi-si</item>
+        <item>Gunwi-gun</item>
+        <item>Gimcheon-si</item>
+        <item>Mungyeong-si</item>
+        <item>Bonghwa-gun</item>
+        <item>Sangju-si</item>
+        <item>Seongju-gun</item>
+        <item>Andong-si</item>
+        <item>Yeongdeok-gun</item>
+        <item>Yeongyang-gun</item>
+        <item>Yeongju-si</item>
+        <item>Yeongcheon-si</item>
+        <item>Yecheon-gun</item>
+        <item>Ulleung-gun</item>
+        <item>Uljin-gun</item>
+        <item>Uiseong-gun</item>
+        <item>Cheongdo-gun</item>
+        <item>Cheongsong-gun</item>
+        <item>Chilgok-gun</item>
+    </string-array>
+
+    <string-array name="searchCountryGyeongsangnamdo">
+        <item>Country</item>
+        <item>main office</item>
+        <item>Changwon-si</item>
+        <item>Geoje-si</item>
+        <item>Geochang-gun</item>
+        <item>Goseong-gun</item>
+        <item>Gimhae-si</item>
+        <item>Namhae-gun</item>
+        <item>Miryang-si</item>
+        <item>Sacheon-si</item>
+        <item>Sancheong-gun</item>
+        <item>Yangsan-si</item>
+        <item>Uiryeong-gun</item>
+        <item>Jinju-si</item>
+        <item>Changnyeong-gun</item>
+        <item>Tongyeong-si</item>
+        <item>Hadong-gun</item>
+        <item>Haman-gun</item>
+        <item>Hamyanng-gun</item>
+        <item>Hapcheon-gun</item>
+    </string-array>
+
+    <string-array name="searchCountryJejudo">
+        <item>Country</item>
+        <item>main office</item>
+    </string-array>
 </resources>
