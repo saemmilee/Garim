@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="statusSignature">
-        <item>status</item>
-        <item>in progress</item>
-        <item>complete</item>
-    </string-array>
-</resources>
