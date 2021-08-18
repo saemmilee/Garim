@@ -40,6 +40,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     //Add LakuePagingButton Library
     implementation 'com.github.lakue119:LakuePagingButton:1.0.0'
+
+    //jh Firebase 인증 Android 라이브러리 종속 항목 선언
+    implementation platform('com.google.firebase:firebase-bom:28.3.0')
+    implementation 'com.google.firebase:firebase-auth'
+
 }
 
 apply plugin: 'com.google.gms.google-services'
+
