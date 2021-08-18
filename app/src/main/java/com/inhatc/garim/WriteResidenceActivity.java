@@ -4,11 +4,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -43,41 +50,99 @@ public class WriteResidenceActivity extends FragmentActivity {
             @Override
             public void onClick(View view) {
 
-                // btnContinue을 클릭 시, 거주지 인증 진행
+                // CheckBox component
+                CheckBox checkBox = (CheckBox)findViewById(R.id.checkBox);
 
-                // 거주지 인증 성공
+                // btnContinue을 클릭 시, 체크박스 선택 여부 확인
+                if(checkBox.isChecked()){
+                    // checked
+                    // EditText component
+                    EditText name = (EditText)findViewById(R.id.editTextName);
+                    EditText registrationNum1 = (EditText)findViewById(R.id.editTextBirth);
+                    EditText registrationNum2 = (EditText)findViewById(R.id.editTextNumber);
 
-                // Data 저장
-                // Writer / Data / address1 / address2 / content / reason
-                // certificate / status / term / title / availability
+                    // EditText를 String으로 변환
+                    String get_name = name.getText().toString();
+                    String get_registrationNum1 = registrationNum1.getText().toString();
+                    String get_registrationNum2 = registrationNum2.getText().toString();
 
-                // 오늘 날짜를 가져온 뒤 String으로 변환
-                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-                Date date = new Date();
-                String dateToStr = dateFormat.format(date);
-                System.out.println("WriteResidence_time: "+ dateToStr);
+                    if (name.length()==0){
+                        Toast.makeText(getApplicationContext(),"Please fill out the name.", Toast.LENGTH_SHORT).show();
+                    }else if(registrationNum1.length()==0 || registrationNum2.length()==0){
+                        Toast.makeText(getApplicationContext(),"Please fill out the resident registration number.", Toast.LENGTH_SHORT).show();
+                    }else{
+                        // 거주지 확인 진행
+                        String forSearch = get_name+"_"+get_registrationNum1+"_"+get_registrationNum2; // 검색을 위한 변수
+                        System.out.println(forSearch);
 
-                // Hashmap 생성
-                HashMap result = new HashMap<>();
-                result.put("writer", "smaemmi"); // 글쓴이
-                result.put("date", dateToStr); // 오늘날짜
-                result.put("address1", "addressTest1"); //시도
-                result.put("address2", "addressTest2"); //시군구
-                result.put("title", "fido 화이팅"); //제목
-                result.put("ordinance", get_content); // 조례내용
-                result.put("reason", get_reason); // 제안이유
-                result.put("certificate", "test.pdf"); // 파일이름
-                result.put("status", "wait"); // 상태는 wait로 고정
-                result.put("classification", get_radio); // 조례 구분
-                result.put("term", ""); // 전자서명 기간
-                result.put("availability", "no"); // 서명가능여부
-                result.put("address1_address2", "for search"); // 검색을 위한 컬럼
+                        // firebase에 저장된사용자의 거주지 정보 가져오기
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = database.getReference("residence");
+                        myRef.orderByChild("id").equalTo(forSearch).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()){
+                                    System.out.println("PARENT: "+ childDataSnapshot.getKey());
+                                    // System.out.println("ADDRESS1: "+ childDataSnapshot.child("address1").getValue());
+                                    // System.out.println("ADDRESS2: "+ childDataSnapshot.child("address2").getValue());
+                                    String get_address1 = String.valueOf(childDataSnapshot.child("address1").getValue());
+                                    String get_address2 = String.valueOf(childDataSnapshot.child("address2").getValue());
+                                    String address1_address2 = get_address1+"_"+get_address2;
 
-                //firebase 정의
-                FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                DatabaseReference databaseReference = firebaseDatabase.getReference();
-                databaseReference.child("ordinance").push().setValue(result);
+                                    if(get_address1.length() == 0 || get_address2.length() == 0){
+                                        // 거주지 확인 실패
+                                        Toast myToast = Toast.makeText(getApplicationContext(), "The information does not exist.", Toast.LENGTH_LONG);
+                                        myToast.show();
+                                    }else{
+                                        // 거주지 확인 성공
+                                        // 오늘 날짜를 가져온 뒤 String으로 변환
+                                        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                                        Date date = new Date();
+                                        String dateToStr = dateFormat.format(date);
+                                        System.out.println("WriteResidence_time: "+ dateToStr);
+
+                                        // Hashmap 생성
+                                        HashMap result = new HashMap<>();
+                                        result.put("writer", "smaemmi"); // 글쓴이
+                                        result.put("date", dateToStr); // 오늘날짜
+                                        result.put("address1", get_address1); //시도
+                                        result.put("address2", get_address2); //시군구
+                                        result.put("title", "거주지확인 test"); //제목
+                                        result.put("ordinance", get_content); // 조례내용
+                                        result.put("reason", get_reason); // 제안이유
+                                        result.put("certificate", "test.pdf"); // 파일이름
+                                        result.put("status", "wait"); // 상태는 wait 고정
+                                        result.put("classification", get_radio); // 조례 구분
+                                        result.put("term", ""); // 전자서명 기간
+                                        result.put("availability", "no"); // 서명가능여부는 NO로 고정
+                                        result.put("address1_address2", address1_address2); // 검색을 위한 주소
+
+                                        // firebase 정의 후 Data 저장
+                                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                                        DatabaseReference databaseReference = firebaseDatabase.getReference();
+                                        databaseReference.child("ordinance").push().setValue(result);
+
+                                        // Intent 전환
+                                    }
+
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+                    }
+
+                } else{
+                    // unchecked
+                    Toast myToast = Toast.makeText(getApplicationContext(),
+                            "Please agree to collect and use personal information.", Toast.LENGTH_LONG);
+                    myToast.show();
+                }
             }
         });
+
     }
 }
