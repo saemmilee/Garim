@@ -17,7 +17,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,12 +34,14 @@ public class OrdinanceStatusFragment extends Fragment {
     private static final String TAG = "OrdinanceStatusFragment";
 
     private Context context;
-    private Spinner searchYear;
     private Spinner searchCity;
-    private ArrayAdapter<String> arrayAdapter;
     private Spinner searchCountry;
-    private Spinner statusSignature;
+    private ArrayAdapter<String> arrayAdapter;
+    private Button btnSearchCity;
+
     private String selectedCity;
+    private String selectedCountry;
+    private String address1_address2;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -53,10 +57,9 @@ public class OrdinanceStatusFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_ordinancestatus, container, false);
         context = container.getContext();
 
-        searchYear = (Spinner) view.findViewById(R.id.searchYear);
         searchCity = (Spinner) view.findViewById(R.id.searchCity);
         searchCountry = (Spinner) view.findViewById(R.id.searchCountry);
-        statusSignature = (Spinner) view.findViewById(R.id.statusSignature);
+        btnSearchCity = (Button) view.findViewById(R.id.btnSearchCity);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
@@ -78,7 +81,7 @@ public class OrdinanceStatusFragment extends Fragment {
         });
 
         //년도
-        ArrayAdapter yearAdapter = ArrayAdapter.createFromResource(
+        /*ArrayAdapter yearAdapter = ArrayAdapter.createFromResource(
                 context, R.array.searchYear, android.R.layout.simple_spinner_dropdown_item);
         yearAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         searchYear.setAdapter(yearAdapter);
@@ -94,12 +97,13 @@ public class OrdinanceStatusFragment extends Fragment {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
-        });
+        });*/
+
 
         //시도
         ArrayAdapter cityAdapter = ArrayAdapter.createFromResource(
                 context, R.array.searchCity, android.R.layout.simple_spinner_dropdown_item);
-        yearAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        cityAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
         searchCity.setAdapter(cityAdapter);
 
         searchCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -108,7 +112,6 @@ public class OrdinanceStatusFragment extends Fragment {
             //getItemAtPosition(position)를 통해서 해당 값을 받아올수있습니다.
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedCity = (String) parent.getItemAtPosition(position);
             }
 
             @Override
@@ -118,18 +121,22 @@ public class OrdinanceStatusFragment extends Fragment {
 
         initAddressSpinner();
 
-        //서명 현황
-        ArrayAdapter signatureAdapter = ArrayAdapter.createFromResource(
-                context, R.array.statusSignature, android.R.layout.simple_spinner_dropdown_item);
-        signatureAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        statusSignature.setAdapter(signatureAdapter);
+        //시군구 선택
+        ArrayAdapter countryAdapter = ArrayAdapter.createFromResource(
+                context, R.array.searchCity, android.R.layout.simple_spinner_dropdown_item);
+        countryAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        searchCountry.setAdapter(countryAdapter);
 
-        statusSignature.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        searchCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             //이 오버라이드 메소드에서 position은 몇번째 값이 클릭됐는지 알 수 있습니다.
             //getItemAtPosition(position)를 통해서 해당 값을 받아올수있습니다.
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedCountry = (String) parent.getItemAtPosition(position);
+                Log.d(TAG, "선택!!시군구:: " + selectedCountry);
+                address1_address2 = selectedCity + "_" + selectedCountry;
+                Log.d(TAG, "선택!!지역은:: " + address1_address2);
             }
 
             @Override
@@ -165,17 +172,119 @@ public class OrdinanceStatusFragment extends Fragment {
 
             }
         });
+
         adapter = new OrdinanceAdapter(arrayList, getContext());
         recyclerView.setAdapter(adapter);
 
+        btnSearchCity.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "도시검색!!!:: " + address1_address2);
+                if (("City").equals(selectedCity)) {
+                    Toast.makeText(context, "Please choose a city.", Toast.LENGTH_LONG).show();
+                    databaseReference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                            //firebase data받아오기
+                            arrayList.clear();  //기존배열 초기화
+
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {  //반복문으로 데이터리스트 추출
+
+                                Ordinance ordinanceList = snapshot.getValue(Ordinance.class);  //만들어뒀던 객체에 데이터 담기
+
+                                System.out.println("ordinanceList:: " + ordinanceList);
+                                //오름차순
+                                arrayList.add(0, ordinanceList);  //담은 데이터를 배열에 넣고 리사이클러뷰로 보낼준비
+                                Log.d(TAG, "arrayList:: " + arrayList);
+
+                            }
+                            adapter.notifyDataSetChanged();  //리스트 저장 및 새로고침
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            Log.e("OrdianceStatusFragment", String.valueOf(databaseError.toException()));  //에러 출력
+
+                        }
+                    });
+
+                    adapter = new OrdinanceAdapter(arrayList, getContext());
+                    recyclerView.setAdapter(adapter);
+                } else if (("Country").equals(selectedCountry)) {
+                    databaseReference.orderByChild("address1")
+                            .equalTo(selectedCity).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            //firebase data받아오기
+                            arrayList.clear();  //기존배열 초기화
+
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {  //반복문으로 데이터리스트 추출
+
+                                Log.d(TAG, "도시검색!!!:: else for 들어왔니?");
+                                Ordinance ordinanceList = snapshot.getValue(Ordinance.class);  //만들어뒀던 객체에 데이터 담기
+
+                                System.out.println("ordinanceList:: " + ordinanceList);
+                                //오름차순
+                                arrayList.add(0, ordinanceList);  //담은 데이터를 배열에 넣고 리사이클러뷰로 보낼준비
+                                Log.d(TAG, "arrayList:: " + arrayList);
+
+                            }
+                            adapter.notifyDataSetChanged();  //리스트 저장 및 새로고침
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Log.e("OrdianceStatusFragment", String.valueOf(databaseError.toException()));  //에러 출력
+                        }
+                    });
+                    adapter = new OrdinanceAdapter(arrayList, getContext());
+                    recyclerView.setAdapter(adapter);
+                } else {
+                    databaseReference.orderByChild("address1_address2")
+                            .equalTo(address1_address2).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            //firebase data받아오기
+                            arrayList.clear();  //기존배열 초기화
+
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {  //반복문으로 데이터리스트 추출
+
+                                Log.d(TAG, "도시검색!!!:: else for 들어왔니?");
+                                Ordinance ordinanceList = snapshot.getValue(Ordinance.class);  //만들어뒀던 객체에 데이터 담기
+
+                                System.out.println("ordinanceList:: " + ordinanceList);
+                                //오름차순
+                                arrayList.add(0, ordinanceList);  //담은 데이터를 배열에 넣고 리사이클러뷰로 보낼준비
+                                Log.d(TAG, "arrayList:: " + arrayList);
+
+                            }
+                            adapter.notifyDataSetChanged();  //리스트 저장 및 새로고침
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+                            Log.e("OrdianceStatusFragment", String.valueOf(databaseError.toException()));  //에러 출력
+                        }
+                    });
+                    adapter = new OrdinanceAdapter(arrayList, getContext());
+                    recyclerView.setAdapter(adapter);
+                }
+            }
+        });
+
         return view;
     }
-
 
     private void initAddressSpinner() {
         searchCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selectedCity = (String) parent.getItemAtPosition(position);
+                Log.d(TAG, "선택!!시도:: " + selectedCity);
                 // 시군구, 동의 스피너를 초기화한다.
                 switch (position) {
                     case 0:

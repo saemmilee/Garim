@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,97 +7,65 @@
     android:orientation="vertical"
     tools:context=".OrdinanceStatusFragment">
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ordinance Status"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:textSize="30sp"
-            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Ordinance Status"
             android:textColor="@color/navy"
-            android:gravity="center" />
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:gravity="center"
+            android:weightSum="8"
+            android:orientation="horizontal" >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
+            <Spinner
+                android:id="@+id/searchCity"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="3"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/layout_border"/>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="8"
-                    android:gravity="center">
-
-                    <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:id="@+id/searchYear" />
-
-                    <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="6"
-                        android:id="@+id/searchCity" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="8"
-                    android:gravity="center">
-
-                    <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="5"
-                        android:id="@+id/searchCountry" />
-
-                    <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="3"
-                        android:id="@+id/statusSignature" />
-
-                </LinearLayout>
-
-            </LinearLayout>
+            <Spinner
+                android:id="@+id/searchCountry"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="3"
+                android:background="@drawable/layout_border"/>
 
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btnSearch"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="search" />
+                android:id="@+id/btnSearchCity"
+                android:layout_width="70px"
+                android:layout_height="70px"
+                android:background="@drawable/search"
+                android:backgroundTint="@color/navy"/>
 
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Lookup Results"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:textSize="30sp"
-            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Lookup Results"
             android:textColor="@color/navy"
-            android:gravity="center" />
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <TableLayout
             android:id="@+id/tblResults"
@@ -116,77 +83,77 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textColor="@color/black"
-                    android:text="no" />
+                    android:text="no"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:gravity="center"
-                    android:textColor="@color/black"
-                    android:text="Title" />
+                    android:text="Title"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
                     android:gravity="center"
-                    android:textColor="@color/black"
-                    android:text="Term" />
+                    android:text="Term"
+                    android:textColor="@color/black" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:textColor="@color/black"
-                    android:text="Signature" />
+                    android:text="Signature"
+                    android:textColor="@color/black" />
 
             </TableRow>
 
-<!--            <TableRow-->
-<!--                android:id="@+id/ordinanceList"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content">-->
+            <!--            <TableRow-->
+            <!--                android:id="@+id/ordinanceList"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content">-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/ordinanceNum"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text="1" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/ordinanceNum"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="1" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/ordinanceTitle"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text="Yangpyeong-gun 어쩌고" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/ordinanceTitle"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="Yangpyeong-gun 어쩌고" />-->
 
-<!--                <TextView-->
-<!--                    android:id="@+id/ordinanceTerm"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:gravity="center"-->
-<!--                    android:text="21.08.22" />-->
+            <!--                <TextView-->
+            <!--                    android:id="@+id/ordinanceTerm"-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:gravity="center"-->
+            <!--                    android:text="21.08.22" />-->
 
-<!--                <Button-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:minHeight="0dp"-->
-<!--                    android:minWidth="0dp"-->
-<!--                    android:text="in progress"-->
-<!--                    android:textSize="7dp"/>-->
+            <!--                <Button-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:minHeight="0dp"-->
+            <!--                    android:minWidth="0dp"-->
+            <!--                    android:text="in progress"-->
+            <!--                    android:textSize="7dp"/>-->
 
-<!--            </TableRow>-->
+            <!--            </TableRow>-->
 
         </TableLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:descendantFocusability="blocksDescendants" >
+            android:descendantFocusability="blocksDescendants">
 
                 <Button
                     android:id="@+id/btnProgress"
@@ -199,41 +166,42 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent">
 
             </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
 
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:gravity="center">-->
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center">-->
 
-<!--            <Button-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="prev" />-->
+        <!--            <Button-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="prev" />-->
 
-<!--            <com.lakue.pagingbutton.LakuePagingButton-->
-<!--                android:id="@+id/btnList"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintLeft_toLeftOf="parent"-->
-<!--                app:layout_constraintRight_toRightOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+        <!--            <com.lakue.pagingbutton.LakuePagingButton-->
+        <!--                android:id="@+id/btnList"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--                app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--                app:layout_constraintRight_toRightOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--            <Button-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="next" />-->
+        <!--            <Button-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:text="next" />-->
 
-<!--        </LinearLayout>-->
+        <!--        </LinearLayout>-->
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_menu"
@@ -244,7 +212,7 @@
                 app:itemIconTint="#FFFFFF"
                 app:itemTextColor="#f6d170"
                 app:labelVisibilityMode="labeled"
-                app:menu="@menu/bottom_menu"/>
+                app:menu="@menu/bottom_menu" />
 
         </RelativeLayout>
 
