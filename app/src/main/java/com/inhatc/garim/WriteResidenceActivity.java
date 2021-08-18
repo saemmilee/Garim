@@ -71,6 +71,7 @@ public class WriteResidenceActivity extends FragmentActivity {
                 result.put("classification", get_radio); // 조례 구분
                 result.put("term", ""); // 전자서명 기간
                 result.put("availability", "no"); // 서명가능여부
+                result.put("address1_address2", "for search"); // 검색을 위한 컬럼
 
                 //firebase 정의
                 FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();

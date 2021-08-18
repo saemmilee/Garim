@@ -19,7 +19,7 @@
             <ImageButton
                 android:id="@+id/btnBack"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_height="60dp"
                 android:layout_gravity="left"
                 android:backgroundTint="#FFFFFF"
                 app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
@@ -39,7 +39,9 @@
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
             <RadioButton
@@ -65,18 +67,30 @@
         </RadioGroup>
 
         <EditText
+            android:id="@+id/txtOrdinance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/edge"
+            android:hint="Please enter the name of the ordinance."
+            android:padding="10dp"
+            android:scrollbars="vertical" />
+
+        <EditText
             android:id="@+id/txtContent1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/edge"
             android:hint="Ordinance Subject to Claim \nand Purpose of Claim"
             android:inputType="textMultiLine"
             android:lines="8"
             android:maxLines="15"
-            android:minLines="6"
+            android:minLines="9"
             android:padding="10dp"
             android:scrollbars="vertical" />
 
@@ -84,7 +98,9 @@
             android:id="@+id/txtContent2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/edge"
             android:hint=" Reason"
             android:inputType="textMultiLine"
@@ -98,9 +114,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="15dp"
             android:orientation="horizontal">
 
             <EditText
@@ -129,7 +144,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="5dp"
             android:background="@color/navy"
             android:text="Apply"
             android:textColor="#FFFFFF"
