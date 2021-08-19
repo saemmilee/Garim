@@ -89,7 +89,6 @@ public class WriteResidenceActivity extends FragmentActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()){
-
                                     System.out.println("PARENT: "+ childDataSnapshot.getKey());
                                     // System.out.println("ADDRESS1: "+ childDataSnapshot.child("address1").getValue());
                                     // System.out.println("ADDRESS2: "+ childDataSnapshot.child("address2").getValue());
@@ -133,6 +132,7 @@ public class WriteResidenceActivity extends FragmentActivity {
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
+
                             }
                         });
 

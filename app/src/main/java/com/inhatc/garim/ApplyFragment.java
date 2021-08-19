@@ -1,8 +1,11 @@
 package com.inhatc.garim;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.HashMap;
 
@@ -24,6 +28,10 @@ public class ApplyFragment extends Fragment {
 //    public WriteFragment() {
 //        // Required empty public constructor
 //    }
+
+    // file upload
+    private Uri filePath;
+    private final int PICK_PDF_CODE = 2342;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,6 +42,9 @@ public class ApplyFragment extends Fragment {
         Button btnApply = (Button)v.findViewById(R.id.btnApply);
         Button btnFile = (Button)v.findViewById(R.id.btnFile);
 
+        // EditText component
+        EditText txtFile = (EditText) v.findViewById(R.id.txtFile);
+
         // RadioGroup component
         final RadioGroup rg = (RadioGroup)v.findViewById(R.id.radioGroup);
 
@@ -41,10 +52,7 @@ public class ApplyFragment extends Fragment {
         btnFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //파일 선택
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.setType("*/*");
-                startActivityForResult(intent,10);
+                selectPdf();
             }
         });
 
@@ -56,7 +64,7 @@ public class ApplyFragment extends Fragment {
                 // EditText component
                 final EditText content = (EditText)v.findViewById(R.id.txtContent1);
                 final EditText reason = (EditText)v.findViewById(R.id.txtContent2);
-                final EditText title = (EditText) v.findViewById(R.id.txtOrdinance);
+                final EditText title = (EditText)v.findViewById(R.id.txtOrdinance);
 
                 if(title.length()==0 || reason.length()==0 || content.length()==0){
                     Toast.makeText(getActivity(),"Fill in the blanks, please.",Toast.LENGTH_SHORT).show();
@@ -84,5 +92,27 @@ public class ApplyFragment extends Fragment {
         });
 
         return v;
+    }
+
+    // pdf 선택
+    private void selectPdf() {
+        Intent intent = new Intent();
+        intent.setType("application/pdf");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Document"), PICK_PDF_CODE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_PDF_CODE && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
+            if (data.getData() != null) {
+                filePath=data.getData();
+                System.out.println("Uri" +  String.valueOf(filePath));
+            } else
+                Toast.makeText(getActivity(), "NO FILE CHOSEN", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
