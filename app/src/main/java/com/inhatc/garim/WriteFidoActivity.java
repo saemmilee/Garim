@@ -26,11 +26,13 @@ public class WriteFidoActivity extends FragmentActivity {
         String get_radio = get_intent.getExtras().getString("radio");
         String get_content = get_intent.getExtras().getString("content");
         String get_reason = get_intent.getExtras().getString("reason");
+        String get_title = get_intent.getExtras().getString("title");
 
         // 콘솔 출력
         System.out.println("WriteFido_radio: "+ get_radio);
         System.out.println("WriteFido_content: " + get_content);
         System.out.println("WriteFido_reason: " + get_reason);
+        System.out.println("WriteFido_title: " + get_title);
 
         // btnContinue 클릭 이벤트
         btnContinue.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +47,7 @@ public class WriteFidoActivity extends FragmentActivity {
                 intent.putExtra("radio", get_radio);
                 intent.putExtra("content", get_content);
                 intent.putExtra("reason", get_reason);
+                intent.putExtra("title", get_title);
                 startActivity(intent);
             }
         });

@@ -30,6 +30,7 @@
         <activity android:name=".WriteFidoActivity"></activity>
         <activity android:name=".WriteResidenceActivity"></activity>
         <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".WriteFinishActivity"></activity>
     </application>
 
 </manifest>

@@ -45,8 +45,12 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:28.3.0')
     implementation 'com.google.firebase:firebase-auth'
 
+    // 파일업로드
+    implementation 'com.google.firebase:firebase-storage'
+
 }
+
+tasks.register("prepareKotlinBuildScriptModel"){}
 
 apply plugin: 'com.google.gms.google-services'
 
-tasks.register("prepareKotlinBuildScriptModel"){}
