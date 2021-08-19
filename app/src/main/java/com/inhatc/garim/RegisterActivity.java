@@ -46,6 +46,24 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnRegister;
     private Button btnSend;
 
+    String pwd = "1004";
+
+    private void Check(String id, String birth) {
+        firebaseAuth.createUserWithEmailAndPassword(id, birth).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    //회원가입 성공시
+                    Toast.makeText(RegisterActivity.this, "사용가능한 아이디입니다", Toast.LENGTH_SHORT).show();
+                } else {
+                    //계정이 중복된 경우
+                    Toast.makeText(RegisterActivity.this, "존재하는 아이디입니다", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+        });
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,59 +93,13 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-
-                itemRef.child("id").addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String value = snapshot.getValue(String.class);
-
-                        if(value!=null){
-                            Toast.makeText(getApplicationContext(),"이미 존재하는 그룹명입니다.",Toast.LENGTH_SHORT).show();//토스메세지 출력
-                        }
-                        else{
-                            Toast.makeText(getApplicationContext(),"사용 가능한 id 입니다.",Toast.LENGTH_SHORT).show();//토스메세지 출력
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                        // 디비를 가져오던중 에러 발생 시
-                        //Log.e("MainActivity", String.valueOf(databaseError.toException())); // 에러문 출력
-                    }
-                });
-
-//                userRef.addValueEventListener(new ValueEventListener() {
-//
-////                    @Override
-////                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
-////                    {
-////                        String id = dataSnapshot.child("id").getValue().toString();
-////                        if (id.equals(txtID.getText().toString())) {
-////                            Toast.makeText(RegisterActivity.this, "이미 사용하고 있는 ID입니다.", Toast.LENGTH_LONG).show();
-////                        } else {
-////                            Toast.makeText(RegisterActivity.this, "사용가능한 ID입니다.", Toast.LENGTH_LONG).show();
-////                        }
-////                    }
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                        //user 안에 여러개의 자식노드들이 있으므로
-//                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                            for(DataSnapshot ds : snapshot.getChildren()) {
-//                                if(ds.child("id").equals(txtID.getText().toString())) {
-//                                    Toast.makeText(RegisterActivity.this, "이미 사용하고 있는 ID입니다.", Toast.LENGTH_LONG).show();
-//                                } else {
-//                                    Toast.makeText(RegisterActivity.this, "사용가능한 ID입니다.", Toast.LENGTH_LONG).show();
-//                                }
-//                            }
-//                        }
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError error) {
-//
-//                    }
-//                });
+                if (!txtID.getText().toString().equals("") && !txtBirth.getText().toString().equals("")) {
+                    Check(txtID.getText().toString() + "@naver.com", txtBirth.getText().toString());
+                } else if(txtBirth.getText().toString().equals("")) {
+                    Toast.makeText(RegisterActivity.this, "생년월일을 입력해주세요", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(RegisterActivity.this, "아이디를 입력해주세요", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -135,13 +107,12 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!txtID.getText().toString().equals("") && !txtBirth.getText().toString().equals("") && !txtName.getText().toString().equals("")) {
-                    Register(txtID.getText().toString() + "@naver.com", txtBirth.getText().toString());
+                if (!txtID.getText().toString().equals("") && !txtBirth.getText().toString().equals("") && !txtName.getText().toString().equals("") && !txtCertification.getText().toString().equals("")) {
                     userRef.addValueEventListener(new ValueEventListener() {
 
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            // 아이디와 이름이 공백이 아닐 경우
+                            // 회원정보가 공백이 아닐경우
                             itemRef.child("id").setValue(txtID.getText().toString());
                             itemRef.child("name").setValue(txtName.getText().toString());
                             itemRef.child("birth").setValue(txtBirth.getText().toString());
@@ -153,6 +124,8 @@ public class RegisterActivity extends AppCompatActivity {
 
                         }
                     });
+                    Toast.makeText(RegisterActivity.this, "회원가입이 완료되었습니다.", Toast.LENGTH_LONG).show();
+                    finish();
                 } else if (!txtCertification.getText().toString().equals("")){
                     Toast.makeText(RegisterActivity.this, "문자 인증을 완료해주세요.", Toast.LENGTH_LONG).show();
 
@@ -163,6 +136,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+        //인증번호 전송
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
@@ -188,44 +162,18 @@ public class RegisterActivity extends AppCompatActivity {
 //                            }
                             @Override
                             public void onVerificationCompleted(PhoneAuthCredential credential) {
-                                // Instant verification is applied and a credential is directly returned.
                                 Toast.makeText(RegisterActivity.this, "인증코드가 전송되었습니다. \n60초 이내에 입력해주세요.", Toast.LENGTH_SHORT).show();
 
                             }
 
-                            // [START_EXCLUDE]
                             @Override
                             public void onVerificationFailed(FirebaseException e) {
 
                             }
-                            // [END_EXCLUDE]
                         })
                         .build();
                 PhoneAuthProvider.verifyPhoneNumber(options);
                 }
         });
     }
-
-    private void enableUserManuallyInputCode() {
-    }
-
-
-    private void Register(String id, String birth) {
-        firebaseAuth.createUserWithEmailAndPassword(id, birth).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    //회원가입 성공시
-                    Toast.makeText(RegisterActivity.this, "회원가입 성공", Toast.LENGTH_SHORT).show();
-                    finish();
-                } else {
-                    //계정이 중복된 경우
-                    Toast.makeText(RegisterActivity.this, "회원가입 실패", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-        });
-    }
-
-
 }
