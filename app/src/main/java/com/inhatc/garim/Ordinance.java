@@ -117,12 +117,12 @@ public class Ordinance {
         this.term = term;
     }
 
-    public void setAvailability(String availability) {
-        this.status = availability;
-    }
-
     public String getAvailability() {
         return availability;
+    }
+
+    public void setAvailability(String availability) {
+        this.availability = availability;
     }
 
     //게시글

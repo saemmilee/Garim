@@ -45,6 +45,6 @@
             android:minHeight="0dp"
             android:text="signature" />
 
-    </TableRow>>
+    </TableRow>
 
 </LinearLayout>

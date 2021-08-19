@@ -39,7 +39,15 @@ public class OrdinanceAdapter extends RecyclerView.Adapter<OrdinanceAdapter.Ordi
         holder.ordinanceNum.setText(String.valueOf(arrayList.get(position).getNum()));
         holder.ordinanceTitle.setText(arrayList.get(position).getTitle());
         holder.ordinanceTerm.setText((CharSequence) arrayList.get(position).getTerm());
-        //holder.ordinanceAvailability.setText(arrayList.get(position).getAvailability());
+
+        //1sunny
+        //서명 불가능한 조례 버튼 비활성화
+        if(("no").equals(arrayList.get(position).getAvailability())) {
+
+            holder.ordinanceAvailability.setBackgroundColor(context.getResources().getColor(R.color.gray));
+            //holder.ordinanceAvailability.setEnabled(false);
+
+        }
 
     }
 
