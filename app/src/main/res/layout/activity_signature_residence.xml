@@ -97,15 +97,15 @@
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="263dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="이샘미"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.709"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView3"
@@ -150,9 +150,9 @@
         app:layout_constraintVertical_bias="0.773" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/agreeCheckBox"
         android:layout_width="109dp"
-        android:layout_height="39dp"
+        android:layout_height="48dp"
         android:text="Yes, I agree."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -164,16 +164,16 @@
     <EditText
         android:id="@+id/editTextNumber"
         android:layout_width="153dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:ems="10"
-        android:text="4 0 0 0 0 0 0"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.821"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.661" />
+        app:layout_constraintVertical_bias="0.661"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
         android:id="@+id/dashImage"
@@ -190,16 +190,16 @@
     <EditText
         android:id="@+id/editTextBirth"
         android:layout_width="135dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:ems="10"
-        android:text="0 0 0 4 0 7"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.163"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.663" />
+        app:layout_constraintVertical_bias="0.663"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/textView4"
