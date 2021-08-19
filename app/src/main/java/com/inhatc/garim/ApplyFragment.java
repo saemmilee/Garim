@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -33,10 +34,6 @@ public class ApplyFragment extends Fragment {
         Button btnApply = (Button)v.findViewById(R.id.btnApply);
         Button btnFile = (Button)v.findViewById(R.id.btnFile);
 
-        // EditText component
-        final EditText content = (EditText)v.findViewById(R.id.txtContent1);
-        final EditText reason = (EditText)v.findViewById(R.id.txtContent2);
-
         // RadioGroup component
         final RadioGroup rg = (RadioGroup)v.findViewById(R.id.radioGroup);
 
@@ -56,21 +53,32 @@ public class ApplyFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                // RadioGroup 값 추출 후 String으로 변환
-                int id = rg.getCheckedRadioButtonId();
-                RadioButton rb = (RadioButton)v.findViewById(id);
-                String get_radio = rb.getText().toString();
+                // EditText component
+                final EditText content = (EditText)v.findViewById(R.id.txtContent1);
+                final EditText reason = (EditText)v.findViewById(R.id.txtContent2);
+                final EditText title = (EditText) v.findViewById(R.id.txtOrdinance);
 
-                // EditText를 String으로 변환
-                String get_content = content.getText().toString();
-                String get_reason = reason.getText().toString();
+                if(title.length()==0 || reason.length()==0 || content.length()==0){
+                    Toast.makeText(getActivity(),"Fill in the blanks, please.",Toast.LENGTH_SHORT).show();
+                }else{
+                    // RadioGroup 값 추출 후 String으로 변환
+                    int id = rg.getCheckedRadioButtonId();
+                    RadioButton rb = (RadioButton)v.findViewById(id);
+                    String get_radio = rb.getText().toString();
 
-                // Intent 생성
-                Intent intent = new Intent(getContext(),WriteFidoActivity.class);
-                intent.putExtra("radio", get_radio);
-                intent.putExtra("content", get_content);
-                intent.putExtra("reason", get_reason);
-                startActivity(intent);
+                    // EditText를 String으로 변환
+                    String get_content = content.getText().toString();
+                    String get_reason = reason.getText().toString();
+                    String get_title = title.getText().toString();
+
+                    // Intent 생성
+                    Intent intent = new Intent(getContext(),WriteFidoActivity.class);
+                    intent.putExtra("radio", get_radio);
+                    intent.putExtra("content", get_content);
+                    intent.putExtra("reason", get_reason);
+                    intent.putExtra("title", get_title);
+                    startActivity(intent);
+                }
 
             }
         });

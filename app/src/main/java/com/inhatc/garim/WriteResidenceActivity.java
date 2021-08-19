@@ -2,6 +2,7 @@ package com.inhatc.garim;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -24,6 +25,10 @@ import java.util.HashMap;
 
 public class WriteResidenceActivity extends FragmentActivity {
 
+    String get_address1;
+    String get_address2;
+    String address1_address2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +44,13 @@ public class WriteResidenceActivity extends FragmentActivity {
         String get_radio = get_intent.getExtras().getString("radio");
         String get_content = get_intent.getExtras().getString("content");
         String get_reason = get_intent.getExtras().getString("reason");
+        String get_title = get_intent.getExtras().getString("title");
 
         // 콘솔 출력
         System.out.println("WriteResidence_radio: "+ get_radio);
         System.out.println("WriteResidence_content: " + get_content);
         System.out.println("WriteResidence_reason: " + get_reason);
+        System.out.println("WriteResidence_title: " + get_title);
 
         // btnContinue 클릭 이벤트
         btnContinue.setOnClickListener(new View.OnClickListener() {
@@ -82,57 +89,56 @@ public class WriteResidenceActivity extends FragmentActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()){
+
                                     System.out.println("PARENT: "+ childDataSnapshot.getKey());
                                     // System.out.println("ADDRESS1: "+ childDataSnapshot.child("address1").getValue());
                                     // System.out.println("ADDRESS2: "+ childDataSnapshot.child("address2").getValue());
-                                    String get_address1 = String.valueOf(childDataSnapshot.child("address1").getValue());
-                                    String get_address2 = String.valueOf(childDataSnapshot.child("address2").getValue());
-                                    String address1_address2 = get_address1+"_"+get_address2;
+                                    get_address1 = String.valueOf(childDataSnapshot.child("address1").getValue());
+                                    get_address2 = String.valueOf(childDataSnapshot.child("address2").getValue());
+                                    address1_address2 = get_address1+"_"+get_address2;
 
-                                    if(get_address1.length() == 0 || get_address2.length() == 0){
-                                        // 거주지 확인 실패
-                                        Toast myToast = Toast.makeText(getApplicationContext(), "The information does not exist.", Toast.LENGTH_LONG);
-                                        myToast.show();
-                                    }else{
-                                        // 거주지 확인 성공
-                                        // 오늘 날짜를 가져온 뒤 String으로 변환
-                                        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-                                        Date date = new Date();
-                                        String dateToStr = dateFormat.format(date);
-                                        System.out.println("WriteResidence_time: "+ dateToStr);
+                                    // 거주지 확인 성공
+                                    // 오늘 날짜를 가져온 뒤 String으로 변환
+                                    DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                                    Date date = new Date();
+                                    String dateToStr = dateFormat.format(date);
+                                    System.out.println("WriteResidence_time: "+ dateToStr);
 
-                                        // Hashmap 생성
-                                        HashMap result = new HashMap<>();
-                                        result.put("writer", "smaemmi"); // 글쓴이
-                                        result.put("date", dateToStr); // 오늘날짜
-                                        result.put("address1", get_address1); //시도
-                                        result.put("address2", get_address2); //시군구
-                                        result.put("title", "거주지확인 test"); //제목
-                                        result.put("ordinance", get_content); // 조례내용
-                                        result.put("reason", get_reason); // 제안이유
-                                        result.put("certificate", "test.pdf"); // 파일이름
-                                        result.put("status", "wait"); // 상태는 wait 고정
-                                        result.put("classification", get_radio); // 조례 구분
-                                        result.put("term", ""); // 전자서명 기간
-                                        result.put("availability", "no"); // 서명가능여부는 NO로 고정
-                                        result.put("address1_address2", address1_address2); // 검색을 위한 주소
+                                    // Hashmap 생성
+                                    HashMap result = new HashMap<>();
+                                    result.put("writer", "smaemmi"); // 글쓴이
+                                    result.put("date", dateToStr); // 오늘날짜
+                                    result.put("address1", get_address1); //시도
+                                    result.put("address2", get_address2); //시군구
+                                    result.put("title", get_title); //제목
+                                    result.put("ordinance", get_content); // 조례내용
+                                    result.put("reason", get_reason); // 제안이유
+                                    result.put("certificate", "test.pdf"); // 파일이름
+                                    result.put("status", "wait"); // 상태는 wait 고정
+                                    result.put("classification", get_radio); // 조례 구분
+                                    result.put("term", ""); // 전자서명 기간
+                                    result.put("availability", "no"); // 서명가능여부는 NO로 고정
+                                    result.put("address1_address2", address1_address2); // 검색을 위한 주소
 
-                                        // firebase 정의 후 Data 저장
-                                        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                                        DatabaseReference databaseReference = firebaseDatabase.getReference();
-                                        databaseReference.child("ordinance").push().setValue(result);
+                                    // firebase 정의 후 Data 저장
+                                    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+                                    DatabaseReference databaseReference = firebaseDatabase.getReference();
+                                    databaseReference.child("ordinance").push().setValue(result);
 
-                                        // Intent 전환
-                                    }
-
+                                    // Intent 전환
+                                    Intent intent = new Intent(getApplicationContext(), WriteFinishActivity.class);
+                                    startActivity(intent);
                                 }
                             }
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
                             }
                         });
+
+                        // 거주지가 있/없는 경우 다 null
+                        // System.out.println("get_address1 : "+get_address1);
+
                     }
 
                 } else{
