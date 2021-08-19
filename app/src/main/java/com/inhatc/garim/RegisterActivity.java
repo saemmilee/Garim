@@ -1,5 +1,6 @@
 package com.inhatc.garim;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -46,24 +47,6 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnRegister;
     private Button btnSend;
 
-    String pwd = "1004";
-
-    private void Check(String id, String birth) {
-        firebaseAuth.createUserWithEmailAndPassword(id, birth).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    //회원가입 성공시
-                    Toast.makeText(RegisterActivity.this, "사용가능한 아이디입니다", Toast.LENGTH_SHORT).show();
-                } else {
-                    //계정이 중복된 경우
-                    Toast.makeText(RegisterActivity.this, "존재하는 아이디입니다", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-        });
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,11 +76,9 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                if (!txtID.getText().toString().equals("") && !txtBirth.getText().toString().equals("")) {
+                if (!txtID.getText().toString().equals("")) {
                     Check(txtID.getText().toString() + "@naver.com", txtBirth.getText().toString());
-                } else if(txtBirth.getText().toString().equals("")) {
-                    Toast.makeText(RegisterActivity.this, "생년월일을 입력해주세요", Toast.LENGTH_LONG).show();
-                } else {
+                }else {
                     Toast.makeText(RegisterActivity.this, "아이디를 입력해주세요", Toast.LENGTH_LONG).show();
                 }
             }
@@ -125,6 +106,7 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     });
                     Toast.makeText(RegisterActivity.this, "회원가입이 완료되었습니다.", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     finish();
                 } else if (!txtCertification.getText().toString().equals("")){
                     Toast.makeText(RegisterActivity.this, "문자 인증을 완료해주세요.", Toast.LENGTH_LONG).show();
@@ -136,7 +118,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        //인증번호 전송
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
@@ -174,6 +155,21 @@ public class RegisterActivity extends AppCompatActivity {
                         .build();
                 PhoneAuthProvider.verifyPhoneNumber(options);
                 }
+        });
+    }
+    private void Check(String id, String birth) {
+        firebaseAuth.createUserWithEmailAndPassword(id, birth).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    //회원가입 성공시
+                    Toast.makeText(RegisterActivity.this, "사용가능한 아이디입니다", Toast.LENGTH_SHORT).show();
+                } else {
+                    //계정이 중복된 경우
+                    Toast.makeText(RegisterActivity.this, "존재하는 아이디입니다", Toast.LENGTH_SHORT).show();
+                }
+            }
+
         });
     }
 }

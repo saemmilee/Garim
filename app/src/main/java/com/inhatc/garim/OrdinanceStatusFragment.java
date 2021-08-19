@@ -75,7 +75,7 @@ public class OrdinanceStatusFragment extends Fragment {
         btnProgress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(),SignActivity.class);
+                Intent intent = new Intent(getContext(),LoginActivity.class);
                 startActivity(intent);
             }
         });

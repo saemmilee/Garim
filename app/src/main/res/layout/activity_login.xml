@@ -40,20 +40,19 @@
         android:layout_marginTop="236dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="ID"
-        android:textColor="#a9a9a9"
+        android:hint="ID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/btnSignin"
+        android:id="@+id/btnSignup"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:backgroundTint="#21427d"
-        android:text="SIGN IN"
+        android:text="SIGN UP"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/btnLogin"
         app:layout_constraintHorizontal_bias="0.784"
@@ -81,6 +80,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignin" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
