@@ -112,42 +112,6 @@
 
             </TableRow>
 
-            <!--            <TableRow-->
-            <!--                android:id="@+id/ordinanceList"-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="wrap_content">-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/ordinanceNum"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:gravity="center"-->
-            <!--                    android:text="1" />-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/ordinanceTitle"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:gravity="center"-->
-            <!--                    android:text="Yangpyeong-gun 어쩌고" />-->
-
-            <!--                <TextView-->
-            <!--                    android:id="@+id/ordinanceTerm"-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:gravity="center"-->
-            <!--                    android:text="21.08.22" />-->
-
-            <!--                <Button-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:minHeight="0dp"-->
-            <!--                    android:minWidth="0dp"-->
-            <!--                    android:text="in progress"-->
-            <!--                    android:textSize="7dp"/>-->
-
-            <!--            </TableRow>-->
-
         </TableLayout>
 
         <LinearLayout

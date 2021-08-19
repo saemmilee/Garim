@@ -1,6 +1,7 @@
 package com.inhatc.garim;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,16 +39,26 @@ public class OrdinanceAdapter extends RecyclerView.Adapter<OrdinanceAdapter.Ordi
 
         holder.ordinanceNum.setText(String.valueOf(arrayList.get(position).getNum()));
         holder.ordinanceTitle.setText(arrayList.get(position).getTitle());
-        holder.ordinanceTerm.setText((CharSequence) arrayList.get(position).getTerm());
+        holder.ordinanceTerm.setText(arrayList.get(position).getTerm());
 
         //1sunny
-        //서명 불가능한 조례 버튼 비활성화
+        //서명 불가능한 조례 버튼 색 변경
         if(("no").equals(arrayList.get(position).getAvailability())) {
 
             holder.ordinanceAvailability.setBackgroundColor(context.getResources().getColor(R.color.gray));
+            //버튼 비활성화
             //holder.ordinanceAvailability.setEnabled(false);
 
         }
+
+        holder.ordinanceAvailability.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, SignActivity.class);
+                intent.putExtra("ordinanceNum", String.valueOf(arrayList.get(position).getNum()));
+                context.startActivity(intent);
+            }
+        });
 
     }
 

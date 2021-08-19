@@ -45,8 +45,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/txtPeriod"
@@ -93,7 +93,7 @@
             android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/btnSignInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -110,7 +110,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edge"
             android:orientation="horizontal">
@@ -134,34 +134,60 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="5dp"
-                android:textColor="@color/black"
                 android:text="Jeonju City Waste Management Ordinance"
                 android:textAlignment="center"
+                android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="389dp"
-            android:background="@drawable/edge">
+            android:layout_height="390dp"
+            android:background="@drawable/edge"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="1. Reason for Proposal"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtReason"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginBottom="10dp"
+                android:scrollbars="vertical"
+                android:text="reason for proposal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Content"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/txtContent"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="내이름은 홍주희\n\n안녕하세요\n스크롤바 테스트에요\n\n내려봐\n\n\n\n\n굿굿\n\n\n\n\n\n\n\n성공❤"
-                android:textSize="18dp" />
-        </ScrollView>
+                android:layout_height="150dp"
+                android:layout_marginBottom="10dp"
+                android:scrollbars="vertical"
+                android:text="ordinance content" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <Button
         android:id="@+id/button"
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
         android:text="Electronic Sign" />
 
 </LinearLayout>

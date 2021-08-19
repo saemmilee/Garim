@@ -1,11 +1,7 @@
 package com.inhatc.garim;
 
 import android.content.Context;
-<<<<<<<<< Temporary merge branch 1
 import android.content.Intent;
-import android.icu.text.SymbolTable;
-=========
->>>>>>>>> Temporary merge branch 2
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,10 +16,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-<<<<<<<<< Temporary merge branch 1
-=========
-import android.widget.EditText;
->>>>>>>>> Temporary merge branch 2
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -76,38 +68,16 @@ public class OrdinanceStatusFragment extends Fragment {
         database = FirebaseDatabase.getInstance();  //firebase db연동
         databaseReference = database.getReference("ordinance");  //db 테이블 연결
 
-<<<<<<<<< Temporary merge branch 1
-        //jh 조회 페이지로 이동
-        Button btnProgress =(Button) view.findViewById(R.id.btnProgress);
-        btnProgress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(),SignActivity.class);
-                startActivity(intent);
-            }
-        });
+//        //jh 조회 페이지로 이동
+//        Button btnProgress =(Button) view.findViewById(R.id.btnProgress);
+//        btnProgress.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getContext(),SignActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
-        //년도
-        ArrayAdapter yearAdapter = ArrayAdapter.createFromResource(
-                context, R.array.searchYear, android.R.layout.simple_spinner_dropdown_item);
-        yearAdapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
-        searchYear.setAdapter(yearAdapter);
-
-        searchYear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            //이 오버라이드 메소드에서 position은 몇번째 값이 클릭됐는지 알 수 있습니다.
-            //getItemAtPosition(position)를 통해서 해당 값을 받아올수있습니다.
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-=========
->>>>>>>>> Temporary merge branch 2
         //시도
         ArrayAdapter cityAdapter = ArrayAdapter.createFromResource(
                 context, R.array.searchCity, android.R.layout.simple_spinner_dropdown_item);
