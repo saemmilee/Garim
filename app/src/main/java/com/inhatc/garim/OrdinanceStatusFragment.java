@@ -2,7 +2,6 @@ package com.inhatc.garim;
 
 import android.content.Context;
 import android.content.Intent;
-import android.icu.text.SymbolTable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -70,16 +68,6 @@ public class OrdinanceStatusFragment extends Fragment {
         database = FirebaseDatabase.getInstance();  //firebase db연동
         databaseReference = database.getReference("ordinance");  //db 테이블 연결
 
-        //jh 조회 페이지로 이동
-        Button btnProgress =(Button) view.findViewById(R.id.btnProgress);
-        btnProgress.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(),LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-
         //년도
         /*ArrayAdapter yearAdapter = ArrayAdapter.createFromResource(
                 context, R.array.searchYear, android.R.layout.simple_spinner_dropdown_item);
@@ -98,6 +86,17 @@ public class OrdinanceStatusFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });*/
+
+
+//        //jh 조회 페이지로 이동
+//        Button btnProgress =(Button) view.findViewById(R.id.btnProgress);
+//        btnProgress.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getContext(),SignActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
         //시도
