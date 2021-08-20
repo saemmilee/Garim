@@ -1,6 +1,7 @@
 package com.inhatc.garim;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,6 +18,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -28,6 +32,11 @@ public class WriteResidenceActivity extends FragmentActivity {
     String get_address1;
     String get_address2;
     String address1_address2;
+
+    // file Upload
+    private Uri filePath;
+    String fileName;
+    String get_file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +54,14 @@ public class WriteResidenceActivity extends FragmentActivity {
         String get_content = get_intent.getExtras().getString("content");
         String get_reason = get_intent.getExtras().getString("reason");
         String get_title = get_intent.getExtras().getString("title");
+        get_file = get_intent.getExtras().getString("file");
 
         // 콘솔 출력
         System.out.println("WriteResidence_radio: "+ get_radio);
         System.out.println("WriteResidence_content: " + get_content);
         System.out.println("WriteResidence_reason: " + get_reason);
         System.out.println("WriteResidence_title: " + get_title);
+        System.out.println("WriteResidence_file: "+ get_file);
 
         // btnContinue 클릭 이벤트
         btnContinue.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +114,9 @@ public class WriteResidenceActivity extends FragmentActivity {
                                     String dateToStr = dateFormat.format(date);
                                     System.out.println("WriteResidence_time: "+ dateToStr);
 
+                                    // 파일 업로드 함수
+                                    UploadFile();
+
                                     // Hashmap 생성
                                     HashMap result = new HashMap<>();
                                     result.put("writer", "smaemmi"); // 글쓴이
@@ -112,7 +126,7 @@ public class WriteResidenceActivity extends FragmentActivity {
                                     result.put("title", get_title); //제목
                                     result.put("ordinance", get_content); // 조례내용
                                     result.put("reason", get_reason); // 제안이유
-                                    result.put("certificate", "test.pdf"); // 파일이름
+                                    result.put("certificate", fileName); // 파일이름
                                     result.put("status", "wait"); // 상태는 wait 고정
                                     result.put("classification", get_radio); // 조례 구분
                                     result.put("term", ""); // 전자서명 기간
@@ -149,6 +163,28 @@ public class WriteResidenceActivity extends FragmentActivity {
                 }
             }
         });
+    }
 
+    // 파일 업로드 함수
+    private void UploadFile(){
+        if( !TextUtils.isEmpty(get_file) ){
+
+            // 파일 업로드를 위한 변환
+            filePath = Uri.parse(get_file);
+
+            // storage
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+
+            // 파일명 생성
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMHH_mmss");
+            Date now = new Date();
+            fileName = "saemmi"+ "_" + formatter.format(now) + ".pdf";
+
+            // storage 주소와 폴더 파일명을 지정
+            StorageReference storageRef = storage.getReferenceFromUrl("gs://garim-4a9a2.appspot.com").child(fileName);
+
+            // 업로드
+            storageRef.putFile(filePath);
+        }
     }
 }
