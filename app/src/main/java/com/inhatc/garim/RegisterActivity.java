@@ -89,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (!txtID.getText().toString().equals("")) {
                     Check(txtID.getText().toString() + "@naver.com", txtBirth.getText().toString());
                 }else {
-                    Toast.makeText(RegisterActivity.this, "아이디를 입력해주세요", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Please enter your ID.", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -115,15 +115,15 @@ public class RegisterActivity extends AppCompatActivity {
 
                         }
                     });
-                    Toast.makeText(RegisterActivity.this, "회원가입이 완료되었습니다.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Your membership registration has been completed.", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     finish();
                 } else if (!txtCertification.getText().toString().equals("")){
-                    Toast.makeText(RegisterActivity.this, "문자 인증을 완료해주세요.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Please complete the message verification.", Toast.LENGTH_LONG).show();
 
                 } else {
                     //입력안했을 때
-                    Toast.makeText(RegisterActivity.this, "회원정보를 입력하세요.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Please enter your membership information.", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -153,7 +153,7 @@ public class RegisterActivity extends AppCompatActivity {
 //                            }
                             @Override
                             public void onVerificationCompleted(PhoneAuthCredential credential) {
-                                Toast.makeText(RegisterActivity.this, "인증코드가 전송되었습니다. \n60초 이내에 입력해주세요.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Authentication code has been sent. \nPlease enter within 60 seconds.", Toast.LENGTH_LONG).show();
 
                             }
 
@@ -173,10 +173,10 @@ public class RegisterActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
                     //회원가입 성공시
-                    Toast.makeText(RegisterActivity.this, "사용가능한 아이디입니다", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "The ID is currently available.", Toast.LENGTH_SHORT).show();
                 } else {
                     //계정이 중복된 경우
-                    Toast.makeText(RegisterActivity.this, "존재하는 아이디입니다", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "This ID already exists.", Toast.LENGTH_SHORT).show();
                 }
             }
 

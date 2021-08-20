@@ -64,12 +64,12 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "로그인 성공",
+                            Toast.makeText(LoginActivity.this, "Please enter your ID.",
                                     Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
                         } else {
-                            Toast.makeText(LoginActivity.this, "로그인 실패",
+                            Toast.makeText(LoginActivity.this, "You failed to log in.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
