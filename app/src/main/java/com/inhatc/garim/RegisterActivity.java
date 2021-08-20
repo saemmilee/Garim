@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -46,6 +47,7 @@ public class RegisterActivity extends AppCompatActivity {
     private Button btnCheck;
     private Button btnRegister;
     private Button btnSend;
+    private ImageButton btnBack;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -69,7 +71,15 @@ public class RegisterActivity extends AppCompatActivity {
         btnCheck = (Button) findViewById(R.id.btnCheck);
         btnRegister = (Button) findViewById(R.id.btnRegister);
         btnSend = (Button) findViewById(R.id.btnSend);
+        btnBack = (ImageButton) findViewById(R.id.btnBack);
 
+        //뒤로가기 기능
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         //아이디 중복체크 기능
         btnCheck.setOnClickListener(new View.OnClickListener() {
