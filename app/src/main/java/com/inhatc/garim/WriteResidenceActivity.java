@@ -27,6 +27,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 public class WriteResidenceActivity extends FragmentActivity {
 
@@ -108,6 +109,9 @@ public class WriteResidenceActivity extends FragmentActivity {
                         myRef.orderByChild("id").equalTo(forSearch).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                // 자식 수 세는 것
+                                // long count = dataSnapshot.getChildrenCount();
+
                                 for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()){
                                     System.out.println("PARENT: "+ childDataSnapshot.getKey());
                                     // System.out.println("ADDRESS1: "+ childDataSnapshot.child("address1").getValue());
@@ -142,10 +146,14 @@ public class WriteResidenceActivity extends FragmentActivity {
                                     result.put("availability", "no"); // 서명가능여부는 NO로 고정
                                     result.put("address1_address2", address1_address2); // 검색을 위한 주소
 
-                                    // firebase 정의 후 Data 저장
+                                    // firebase 정의
                                     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-                                    DatabaseReference databaseReference = firebaseDatabase.getReference();
-                                    databaseReference.child("ordinance").push().setValue(result);
+                                    DatabaseReference databaseReference = firebaseDatabase.getReference().child("ordinance");
+
+                                    // num 설정을 위한 HashMap
+                                    Map<String, Object> taskMap = new HashMap<String, Object>();
+                                    taskMap.put("44", result);
+                                    databaseReference.updateChildren(taskMap);
 
                                     // Intent 전환
                                     Intent intent = new Intent(getApplicationContext(), WriteFinishActivity.class);
