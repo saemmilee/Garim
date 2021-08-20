@@ -29,6 +29,7 @@ public class SignActivity extends AppCompatActivity {
     private TextView txtTitle;
     private TextView txtReason;
     private TextView txtContent;
+    private ImageButton btnBack;
     private ImageButton btnSignInfo;
 
     private String ordinanceNum;
@@ -47,6 +48,7 @@ public class SignActivity extends AppCompatActivity {
         txtReason = (TextView)findViewById(R.id.txtReason);
         txtContent = (TextView)findViewById(R.id.txtContent);
         btnSignInfo = (ImageButton)findViewById(R.id.btnSignInfo);
+        btnBack = (ImageButton)findViewById(R.id.btnBack);
 
         txtReason.setMovementMethod(new ScrollingMovementMethod());
         txtContent.setMovementMethod(new ScrollingMovementMethod());
@@ -54,10 +56,26 @@ public class SignActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance();  //firebase db연동
         databaseReference = database.getReference("ordinance");  //db 테이블 연결
 
-        Intent SignIntent = getIntent();
-        ordinanceNum = SignIntent.getStringExtra("ordinanceNum");
-        Log.d("Tag ", "ordinanceNum: " + ordinanceNum + "_" + ordinanceNum.getClass().getName());
+        Intent signIntent = getIntent();
+        ordinanceNum = signIntent.getStringExtra("ordinanceNum");
+        String moveFrom = signIntent.getStringExtra("moveFrom");
+        Log.d(TAG, "{ordinanceNum, moveFrom}: " + "{" + ordinanceNum + ", " + moveFrom + "}");
 
+        btnBack.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                //본인이 작성한 조례 조회했을 때
+                if(("ApplicationAdapter").equals(moveFrom)) {
+                    Intent intent2 = new Intent(getApplicationContext(), ApplicationStatusActivity.class);
+                    startActivity(intent2);
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    intent.putExtra("move", "backOrdinanceStatus");
+                    startActivity(intent);
+                }
+            }
+        });
         
         //num으로 조례 가져오기
         databaseReference.orderByChild("num")

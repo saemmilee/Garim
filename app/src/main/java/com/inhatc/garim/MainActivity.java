@@ -2,6 +2,7 @@ package com.inhatc.garim;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -10,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     private OrdinanceStatusFragment ordinanceStatusFragment;
     private ApplyFragment applyFragment;
@@ -29,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         if("backMypage".equals(getMove)) {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, mypageFragment).commit();
+
         } else {
             getSupportFragmentManager().beginTransaction().replace(R.id.container, ordinanceStatusFragment).commit();
         }
@@ -37,15 +41,19 @@ public class MainActivity extends AppCompatActivity {
         bottom_menu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
                 switch(item.getItemId()) {
                     case R.id.tabOrdinanceStatus:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, ordinanceStatusFragment).commit();
+
                         return true;
                     case R.id.tabApply:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, applyFragment).commit();
+
                         return true;
                     case R.id.tabMypage:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, mypageFragment).commit();
+
                         return true;
                 }
                 return false;
