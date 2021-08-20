@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,6 +30,7 @@ import java.util.HashMap;
 
 public class WriteResidenceActivity extends FragmentActivity {
 
+    // 거주지 확인
     String get_address1;
     String get_address2;
     String address1_address2;
@@ -38,10 +40,17 @@ public class WriteResidenceActivity extends FragmentActivity {
     String fileName;
     String get_file;
 
+    // 사용자 정보
+    private FirebaseAuth mAuth;
+    String get_writer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_residence);
+
+        // 사용자 정보 가져오는 함수
+        GetUser();
 
         // Button component
         Button btnContinue = (Button)findViewById(R.id.btnContinue);
@@ -119,7 +128,7 @@ public class WriteResidenceActivity extends FragmentActivity {
 
                                     // Hashmap 생성
                                     HashMap result = new HashMap<>();
-                                    result.put("writer", "smaemmi"); // 글쓴이
+                                    result.put("writer", get_writer); // 글쓴이
                                     result.put("date", dateToStr); // 오늘날짜
                                     result.put("address1", get_address1); //시도
                                     result.put("address2", get_address2); //시군구
@@ -186,5 +195,16 @@ public class WriteResidenceActivity extends FragmentActivity {
             // 업로드
             storageRef.putFile(filePath);
         }
+    }
+
+    // 사용자 정보 가져오는 함수
+    private void GetUser(){
+        mAuth = FirebaseAuth.getInstance();
+        String email = mAuth.getCurrentUser().getEmail();
+
+        System.out.println(email);
+
+        // @를 기준으로 사용자 ID 가져오기
+        get_writer = email.substring(0, email.indexOf("@"));
     }
 }
