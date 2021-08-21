@@ -109,8 +109,9 @@ public class WriteResidenceActivity extends FragmentActivity {
                         myRef.orderByChild("id").equalTo(forSearch).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                // 자식 수 세는 것
-                                // long count = dataSnapshot.getChildrenCount();
+                                // 자식 수
+                                long count = dataSnapshot.getChildrenCount();
+                                System.out.println("ChildrenCount :" + count);
 
                                 for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()){
                                     System.out.println("PARENT: "+ childDataSnapshot.getKey());
@@ -195,7 +196,7 @@ public class WriteResidenceActivity extends FragmentActivity {
             // 파일명 생성
             SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMHH_mmss");
             Date now = new Date();
-            fileName = "saemmi"+ "_" + formatter.format(now) + ".pdf";
+            fileName = get_writer+ "_" + formatter.format(now) + ".pdf";
 
             // storage 주소와 폴더 파일명을 지정
             StorageReference storageRef = storage.getReferenceFromUrl("gs://garim-4a9a2.appspot.com").child(fileName);
