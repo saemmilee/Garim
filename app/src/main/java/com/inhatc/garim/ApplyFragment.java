@@ -31,6 +31,7 @@ public class ApplyFragment extends Fragment {
     // file upload
     private Uri filePath;
     private final int PICK_PDF_CODE = 2342;
+    String get_file;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,6 +85,7 @@ public class ApplyFragment extends Fragment {
                     intent.putExtra("content", get_content);
                     intent.putExtra("reason", get_reason);
                     intent.putExtra("title", get_title);
+                    intent.putExtra("file", get_file);
                     startActivity(intent);
                 }
 
@@ -108,7 +110,8 @@ public class ApplyFragment extends Fragment {
         if (requestCode == PICK_PDF_CODE && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
             if (data.getData() != null) {
                 filePath=data.getData();
-                System.out.println("Uri" +  String.valueOf(filePath));
+                get_file = String.valueOf(filePath);
+                System.out.println("ApplyFragment_Uri : " +  get_file);
             } else
                 Toast.makeText(getActivity(), "NO FILE CHOSEN", Toast.LENGTH_SHORT).show();
         }

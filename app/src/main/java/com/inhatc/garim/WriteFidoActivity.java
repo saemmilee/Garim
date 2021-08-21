@@ -1,6 +1,7 @@
 package com.inhatc.garim;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,12 +28,15 @@ public class WriteFidoActivity extends FragmentActivity {
         String get_content = get_intent.getExtras().getString("content");
         String get_reason = get_intent.getExtras().getString("reason");
         String get_title = get_intent.getExtras().getString("title");
+        String get_file = get_intent.getExtras().getString("file");
+
 
         // 콘솔 출력
         System.out.println("WriteFido_radio: "+ get_radio);
         System.out.println("WriteFido_content: " + get_content);
         System.out.println("WriteFido_reason: " + get_reason);
         System.out.println("WriteFido_title: " + get_title);
+        System.out.println("WriteFido_file: " + get_file);
 
         // btnContinue 클릭 이벤트
         btnContinue.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +52,7 @@ public class WriteFidoActivity extends FragmentActivity {
                 intent.putExtra("content", get_content);
                 intent.putExtra("reason", get_reason);
                 intent.putExtra("title", get_title);
+                intent.putExtra("file", get_file);
                 startActivity(intent);
             }
         });
