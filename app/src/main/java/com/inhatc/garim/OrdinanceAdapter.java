@@ -2,6 +2,7 @@ package com.inhatc.garim;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,8 +47,6 @@ public class OrdinanceAdapter extends RecyclerView.Adapter<OrdinanceAdapter.Ordi
         if(("no").equals(arrayList.get(position).getAvailability())) {
 
             holder.ordinanceAvailability.setBackgroundColor(context.getResources().getColor(R.color.gray));
-            //버튼 비활성화
-            //holder.ordinanceAvailability.setEnabled(false);
 
         }
 
