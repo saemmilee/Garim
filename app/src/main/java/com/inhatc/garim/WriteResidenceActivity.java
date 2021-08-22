@@ -45,6 +45,9 @@ public class WriteResidenceActivity extends FragmentActivity {
     private FirebaseAuth mAuth;
     String get_writer;
 
+    // 조례 Number
+    String get_num;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,9 @@ public class WriteResidenceActivity extends FragmentActivity {
 
         // 사용자 정보 가져오는 함수
         GetUser();
+
+        // ordinance 자식 수 가져오는 함수
+        GetNum();
 
         // Button component
         Button btnContinue = (Button)findViewById(R.id.btnContinue);
@@ -103,7 +109,7 @@ public class WriteResidenceActivity extends FragmentActivity {
                         String forSearch = get_name+"_"+get_registrationNum1+"_"+get_registrationNum2; // 검색을 위한 변수
                         System.out.println(forSearch);
 
-                        // firebase에 저장된사용자의 거주지 정보 가져오기
+                        // firebase에 저장된 사용자의 거주지 정보 가져오기
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
                         DatabaseReference myRef = database.getReference("residence");
                         myRef.orderByChild("id").equalTo(forSearch).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -111,8 +117,16 @@ public class WriteResidenceActivity extends FragmentActivity {
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                 // 자식 수
                                 long count = dataSnapshot.getChildrenCount();
-                                System.out.println("ChildrenCount :" + count);
-
+                                System.out.println("residence_ChildrenCount :" + count);
+                                
+                                // 거주지 확인 실패
+                                if (count == 0){
+                                    Toast myToast = Toast.makeText(getApplicationContext(),
+                                            "No matching information.", Toast.LENGTH_LONG);
+                                    myToast.show();
+                                }
+                                
+                                // 거주지 확인 성공
                                 for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()){
                                     System.out.println("PARENT: "+ childDataSnapshot.getKey());
                                     // System.out.println("ADDRESS1: "+ childDataSnapshot.child("address1").getValue());
@@ -153,7 +167,7 @@ public class WriteResidenceActivity extends FragmentActivity {
 
                                     // num 설정을 위한 HashMap
                                     Map<String, Object> taskMap = new HashMap<String, Object>();
-                                    taskMap.put("44", result);
+                                    taskMap.put(get_num, result);
                                     databaseReference.updateChildren(taskMap);
 
                                     // Intent 전환
@@ -167,10 +181,6 @@ public class WriteResidenceActivity extends FragmentActivity {
 
                             }
                         });
-
-                        // 거주지가 있/없는 경우 다 null
-                        // System.out.println("get_address1 : "+get_address1);
-
                     }
 
                 } else{
@@ -215,5 +225,28 @@ public class WriteResidenceActivity extends FragmentActivity {
 
         // @를 기준으로 사용자 ID 가져오기
         get_writer = email.substring(0, email.indexOf("@"));
+    }
+
+    // ordinance 자식 수 세는 함수
+    private void GetNum(){
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("ordinance");
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // 자식 수
+                long count = dataSnapshot.getChildrenCount();
+                System.out.println("ordinance_ChildrenCount :" + count);
+
+                long result = count + 1;
+                get_num = Long.toString(result);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 }
