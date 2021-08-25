@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Writing an Ordinance"
         android:textColor="#21427d"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

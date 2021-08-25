@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="MY PAGE"
-            android:textSize="30sp"
+            android:textSize="40sp"
             android:textColor="@color/navy"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
