@@ -91,7 +91,7 @@
             android:inputType="textMultiLine"
             android:lines="8"
             android:maxLines="15"
-            android:minLines="9"
+            android:minLines="5"
             android:padding="10dp"
             android:scrollbars="vertical" />
 
