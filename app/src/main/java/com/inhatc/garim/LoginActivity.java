@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(!txtID.getText().toString().equals("")) {
                     Login();
                 } else {
-                    Toast.makeText(LoginActivity.this, "아이디를 입력해주세요", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Please enter your ID.", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Please enter your ID.",
+                            Toast.makeText(LoginActivity.this, "Success login",
                                     Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
