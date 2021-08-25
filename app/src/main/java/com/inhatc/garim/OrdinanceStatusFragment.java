@@ -112,6 +112,7 @@ public class OrdinanceStatusFragment extends Fragment {
             }
         });
 
+        //초기 전체 목록 출력
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -144,6 +145,8 @@ public class OrdinanceStatusFragment extends Fragment {
         adapter = new OrdinanceAdapter(arrayList, getContext());
         recyclerView.setAdapter(adapter);
 
+
+        //도시 검색
         btnSearchCity.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -151,6 +154,7 @@ public class OrdinanceStatusFragment extends Fragment {
                 Log.d(TAG, "도시검색!!!:: " + address1_address2);
                 if (("City").equals(selectedCity)) {
                     Toast.makeText(context, "Please choose a city.", Toast.LENGTH_LONG).show();
+                    //도시와 시군구 모두 선택 안했을 때 모든 데이터 출력
                     databaseReference.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -183,6 +187,7 @@ public class OrdinanceStatusFragment extends Fragment {
                     adapter = new OrdinanceAdapter(arrayList, getContext());
                     recyclerView.setAdapter(adapter);
                 } else if (("Country").equals(selectedCountry)) {
+                    //도시만 선택했을 때
                     databaseReference.orderByChild("address1")
                             .equalTo(selectedCity).addValueEventListener(new ValueEventListener() {
                         @Override
@@ -212,6 +217,7 @@ public class OrdinanceStatusFragment extends Fragment {
                     adapter = new OrdinanceAdapter(arrayList, getContext());
                     recyclerView.setAdapter(adapter);
                 } else {
+                    //도시와 시군구 모두 선택했을 때
                     databaseReference.orderByChild("address1_address2")
                             .equalTo(address1_address2).addValueEventListener(new ValueEventListener() {
                         @Override
@@ -253,7 +259,7 @@ public class OrdinanceStatusFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectedCity = (String) parent.getItemAtPosition(position);
                 Log.d(TAG, "선택!!시도:: " + selectedCity);
-                // 시군구, 동의 스피너를 초기화한다.
+                // 스피너 초기화
                 switch (position) {
                     case 0:
                         searchCountry.setAdapter(null);
