@@ -59,7 +59,7 @@
                 <TextView
                     android:id="@+id/txtPeriod"
                     android:layout_width="112dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:padding="10dp"
                     android:text="Sign Period"
@@ -69,10 +69,10 @@
                 <TextView
                     android:id="@+id/txtStart"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="2021.06.09"
+                    android:text="20210812"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
@@ -91,16 +91,16 @@
                 <TextView
                     android:id="@+id/txtEnd"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="2021.11.11"
+                    android:text="20210912"
                     android:textAlignment="center"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
                 <ImageButton
-                    android:id="@+id/btnSignInfo"
+                    android:id="@+id/btnSign"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -237,7 +237,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
-                android:layout_margin="8dp"
+                android:layout_margin="5dp"
                 android:layout_marginTop="0dp"
                 android:orientation="vertical">
 
@@ -256,20 +256,19 @@
                         android:text="ordinance"
                         android:textAlignment="center"
                         android:textColor="@color/navy"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/txtTitle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:text="Jeonju City Waste Management Ordinance"
+                        android:text="Daejeon City Labor Human Rights Protection Ordinance"
                         android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="20dp" />
+                        android:textSize="16dp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -301,8 +300,7 @@
                                 android:layout_height="120dp"
                                 android:layout_marginBottom="10dp"
                                 android:scrollbars="vertical"
-                                android:text=" reason for proposal"
-                                android:textSize="18dp" />
+                                android:text="A. By promoting the protection and promotion of labor rights of workers in Daejeon Metropolitan City, all citizens can realize their dignity as human beings and enjoy the right to live happily. B. To protect and promote workers' human rights by establishing and implementing a basic plan for labor rights policies. C. To protect the minimum rights of workers, to protect the rights and interests of single-person self-employed businesses based on vulnerable class workers and platforms, and to relieve infringed rights." />
                         </LinearLayout>
                     </ScrollView>
 
@@ -328,8 +326,7 @@
                                 android:layout_height="150dp"
                                 android:layout_marginBottom="10dp"
                                 android:scrollbars="vertical"
-                                android:text=" ordinance content"
-                                android:textSize="18dp" />
+                                android:text="A. (Purpose) The purpose of Daejeon Metropolitan Government is to realize the dignity of all citizens as human beings and to enjoy the right to happy life by protecting and promoting the labor rights of Daejeon Metropolitan City. B. (Applicable) This Ordinance shall be subject to the application of workers, users and residents of the City's residential workplace. C. (Worker's right) Workers' workplaces, education and events, rest and commuting, other than prescribed business hours.It shall have the right to guarantee and respect basic human rights of labor in communication spaces related to wireless work." />
                         </LinearLayout>
                     </ScrollView>
 
@@ -338,10 +335,10 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnElecSign"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
+                android:layout_margin="5dp"
                 android:layout_marginTop="0dp"
                 android:text="Electronic Sign" />
         </LinearLayout>
