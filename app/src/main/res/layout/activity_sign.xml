@@ -189,3 +189,5 @@
         android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:text="Electronic Sign" />
+
+</LinearLayout>
