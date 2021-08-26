@@ -13,19 +13,17 @@
 
             <ImageButton
                 android:id="@+id/btnBack"
-                android:layout_width="100dp"
+                android:layout_width="80dp"
                 android:layout_height="match_parent"
-                android:layout_gravity="right"
-                android:paddingStart="120dp"
                 android:backgroundTint="#FFFFFF"
-                app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
+                android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 
             <TextView
                 android:id="@+id/txtArea"
                 android:layout_width="160dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="Area"
+                android:text="Daejeon"
                 android:textAlignment="center"
                 android:textColor="@color/navy"
                 android:textSize="30sp"
@@ -97,13 +95,12 @@
 
         <ImageButton
             android:id="@+id/btnSignInfo"
-            android:layout_width="60dp"
-            android:layout_height="45dp"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:paddingEnd="50dp"
             android:backgroundTint="#FFFFFF"
             android:onClick="onClickSigninfo"
-            app:srcCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
+            android:src="@drawable/ic_baseline_keyboard_arrow_down_24" />
 
     </LinearLayout>
 
