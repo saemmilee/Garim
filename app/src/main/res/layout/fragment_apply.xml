@@ -26,7 +26,7 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="A bill of ordinances"
@@ -35,127 +35,132 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <RadioGroup
-            android:id="@+id/radioGroup"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
-            <RadioButton
-                android:id="@+id/rbtnEnactment"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:checked="true"
-                android:text="Enactment" />
+                android:orientation="vertical">
 
-            <RadioButton
-                android:id="@+id/rbtnAbolition"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Abolition" />
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/rbtnRevision"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Revision" />
-        </RadioGroup>
+                    <RadioButton
+                        android:id="@+id/rbtnEnactment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:text="Enactment" />
 
-        <EditText
-            android:id="@+id/txtOrdinance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/edge"
-            android:hint="Please enter the name of the ordinance."
-            android:padding="10dp"
-            android:scrollbars="vertical" />
+                    <RadioButton
+                        android:id="@+id/rbtnAbolition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Abolition" />
 
-        <EditText
-            android:id="@+id/txtContent1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/edge"
-            android:hint="Ordinance Subject to Claim \nand Purpose of Claim"
-            android:inputType="textMultiLine"
-            android:lines="8"
-            android:maxLines="15"
-            android:minLines="5"
-            android:padding="10dp"
-            android:scrollbars="vertical" />
+                    <RadioButton
+                        android:id="@+id/rbtnRevision"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Revision" />
+                </RadioGroup>
 
-        <EditText
-            android:id="@+id/txtContent2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/edge"
-            android:hint=" Reason"
-            android:inputType="textMultiLine"
-            android:lines="8"
-            android:maxLines="8"
-            android:minLines="3"
-            android:padding="10dp"
-            android:scrollbars="vertical" />
+                <EditText
+                    android:id="@+id/txtOrdinance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/edge"
+                    android:hint="Please enter the name of the ordinance."
+                    android:padding="10dp"
+                    android:scrollbars="vertical" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/txtContent1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/edge"
+                    android:hint="Ordinance Subject to Claim \nand Purpose of Claim"
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:maxLines="15"
+                    android:minLines="11"
+                    android:padding="10dp"
+                    android:scrollbars="vertical" />
 
-            <EditText
-                android:id="@+id/txtFile"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="top"
-                android:layout_weight="1"
-                android:background="@drawable/edge"
-                android:ems="10"
-                android:hint=" Please submit the attached file."
-                android:inputType="textPersonName" />
+                <EditText
+                    android:id="@+id/txtContent2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginTop="0dp"
+                    android:background="@drawable/edge"
+                    android:hint=" Reason"
+                    android:inputType="textMultiLine"
+                    android:lines="8"
+                    android:maxLines="10"
+                    android:minLines="5"
+                    android:padding="10dp"
+                    android:scrollbars="vertical" />
 
-            <Button
-                android:id="@+id/btnFile"
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/navy"
-                android:text="Submit"
-                android:textColor="#FFFFFF" />
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:layout_marginTop="0dp"
+                    android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnApply"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/navy"
-            android:text="Apply"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
+                    <EditText
+                        android:id="@+id/txtFile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="top"
+                        android:layout_weight="1"
+                        android:background="@drawable/edge"
+                        android:ems="10"
+                        android:hint=" Please submit the attached file."
+                        android:inputType="textPersonName" />
+
+                    <Button
+                        android:id="@+id/btnFile"
+                        android:layout_width="47dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/navy"
+                        android:text="Submit"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnApply"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@color/navy"
+                    android:text="Apply"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+        </ScrollView>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_menu"
