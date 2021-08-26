@@ -13,14 +13,16 @@
 
             <ImageButton
                 android:id="@+id/btnBack"
-                android:layout_width="80dp"
+                android:layout_width="100dp"
                 android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:paddingStart="120dp"
                 android:backgroundTint="#FFFFFF"
                 app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
             <TextView
                 android:id="@+id/txtArea"
-                android:layout_width="180dp"
+                android:layout_width="160dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="Area"
@@ -42,72 +44,73 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtPeriod"
+        <TextView
+            android:id="@+id/txtPeriod"
 
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="5dp"
-                android:text="Sign Period"
-                android:gravity="center"
-                android:textAlignment="center"
-                android:textColor="@color/navy"
-                android:textSize="18dp" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Sign Period"
+            android:textAlignment="center"
+            android:textColor="@color/navy"
+            android:textSize="18dp" />
 
-            <TextView
-                android:id="@+id/txtStart"
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="20210609"
-                android:textAlignment="center"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txtStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="20210609"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="~"
-                android:textAlignment="center"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="~"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtEnd"
-                android:layout_width="80dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="20211111"
-                android:textAlignment="center"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+        <TextView
+            android:id="@+id/txtEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="20211111"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
-            <ImageButton
-                android:id="@+id/btnSignInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:backgroundTint="#FFFFFF"
-                android:onClick="onClickSigninfo"
-                app:srcCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
+        <ImageButton
+            android:id="@+id/btnSignInfo"
+            android:layout_width="60dp"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:paddingEnd="50dp"
+            android:backgroundTint="#FFFFFF"
+            android:onClick="onClickSigninfo"
+            app:srcCompat="@drawable/ic_baseline_keyboard_arrow_down_24" />
 
-        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="360dp"
-        android:layout_margin="10dp"
+        android:layout_height="380dp"
+        android:layout_margin="5dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -125,8 +128,7 @@
                 android:text="ordinance"
                 android:textAlignment="center"
                 android:textColor="@color/navy"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/txtTitle"
@@ -138,8 +140,7 @@
                 android:text="Jeonju City Waste Management Ordinance"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textSize="16dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -159,7 +160,7 @@
             <TextView
                 android:id="@+id/txtReason"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="130dp"
                 android:layout_marginBottom="10dp"
                 android:scrollbars="vertical"
                 android:text="reason for proposal" />
@@ -183,13 +184,26 @@
 
     </LinearLayout>
 
-        <Button
-            android:id="@+id/btnElecSign"
+    <Button
+        android:id="@+id/btnElecSign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_margin="5dp"
+        android:text="Electronic Sign" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Electronic Sign" />
+            android:orientation="vertical" >
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>
