@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ public class ElectronicSignatureActivity extends AppCompatActivity {
 
     private MypageFragment mypageFragment;
     private ImageButton btnBack;
+    private TextView txtTitle4;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -36,6 +38,16 @@ public class ElectronicSignatureActivity extends AppCompatActivity {
 
         mypageFragment = new MypageFragment();
         btnBack = (ImageButton)findViewById(R.id.btnBack);
+        txtTitle4 = (TextView)findViewById(R.id.txtTitle4);
+
+        //조회페이지로 이동
+        txtTitle4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TextView 클릭될 시 할 코드작성
+                startActivity(new Intent(ElectronicSignatureActivity.this, SignCancelActivity.class));
+            }
+        });
 
 //        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
 //        recyclerView.setHasFixedSize(true);
