@@ -5,12 +5,15 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.collection.ArraySet;
+import androidx.fragment.app.FragmentActivity;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class SignActivity extends AppCompatActivity {
+public class SignActivity extends FragmentActivity {
 
     private static final String TAG = "SignActivity";
 
@@ -31,6 +34,7 @@ public class SignActivity extends AppCompatActivity {
     private TextView txtContent;
     private ImageButton btnBack;
     private ImageButton btnSignInfo;
+    private Button btnElecSign;
 
     private String ordinanceNum;
 
@@ -49,6 +53,7 @@ public class SignActivity extends AppCompatActivity {
         txtContent = (TextView)findViewById(R.id.txtContent);
         btnSignInfo = (ImageButton)findViewById(R.id.btnSignInfo);
         btnBack = (ImageButton)findViewById(R.id.btnBack);
+        btnElecSign = (Button)findViewById(R.id.btnElecSign);
 
         txtReason.setMovementMethod(new ScrollingMovementMethod());
         txtContent.setMovementMethod(new ScrollingMovementMethod());
@@ -97,10 +102,31 @@ public class SignActivity extends AppCompatActivity {
                     txtTitle.setText(ordinance.getTitle());
                     txtReason.setText(ordinance.getReason());
                     txtContent.setText(ordinance.getOrdinance());
+                    
+                    if(("yes").equals(ordinance.getAvailability())) {
 
-                    if("no".equals(ordinance.getAvailability())) {
-                        btnSignInfo.setEnabled(false);
+                        Log.d(TAG, "ordinance_Availability: " + "yes!!");
+                        btnElecSign.setBackgroundColor(getColor(R.color.navy));
+                        btnElecSign.setTextColor(getColor(R.color.white));
+
+                        btnElecSign.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(SignActivity.this, SignatureFidoActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+
+                    } else if(("no").equals(ordinance.getAvailability())){
+
+                        Log.d(TAG, "ordinance_Availability: " + ordinance.getAvailability());
+
+                        //서명 불가능한 조례 서명버튼 비활성화
+                        btnElecSign.setEnabled(false);
+                        btnElecSign.setBackgroundColor(getColor(R.color.gray));
+
                     }
+
                 }
 
             }

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
 
     <LinearLayout
@@ -20,7 +20,7 @@
 
         <TextView
             android:id="@+id/txtArea"
-            android:layout_width="230dp"
+            android:layout_width="224dp"
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Area"
@@ -35,27 +35,29 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Sign in Progress"
+            android:text="progress"
             android:textAlignment="center"
-            android:textColor="#00d76b"
-            android:textSize="20dp"
+            android:textColor="#00BCD4"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/txtPeriod"
-            android:layout_width="112dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="10dp"
             android:text="Sign Period"
             android:textColor="@color/navy"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtStart"
@@ -65,8 +67,8 @@
             android:gravity="center"
             android:text="2021.06.09"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView"
@@ -74,10 +76,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text=" ~ "
+            android:text="~"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtEnd"
@@ -87,8 +89,8 @@
             android:gravity="center"
             android:text="2021.11.11"
             android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/btnSignInfo"
@@ -103,9 +105,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="580dp"
-        android:layout_margin="8dp"
-        android:layout_marginTop="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -136,12 +137,13 @@
                 android:text="Jeonju City Waste Management Ordinance"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@drawable/edge"
             android:orientation="vertical">
 
@@ -153,25 +155,13 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <ScrollView
+            <TextView
+                android:id="@+id/txtReason"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtReason"
-                        android:layout_width="match_parent"
-                        android:layout_height="250dp"
-                        android:layout_marginBottom="10dp"
-                        android:scrollbars="vertical"
-                        android:text="reason for proposal"
-                        android:textSize="18dp" />
-                </LinearLayout>
-            </ScrollView>
+                android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
+                android:scrollbars="vertical"
+                android:text="reason for proposal" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -180,36 +170,22 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <ScrollView
+            <TextView
+                android:id="@+id/txtContent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtContent"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:scrollbars="vertical"
-                        android:text="ordinance content"
-                        android:textSize="18dp" />
-                </LinearLayout>
-            </ScrollView>
+                android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
+                android:scrollbars="vertical"
+                android:text="ordinance content" />
 
         </LinearLayout>
 
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
+        android:id="@+id/btnElecSign"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="match_parent"
         android:text="Electronic Sign" />
-
-</LinearLayout>

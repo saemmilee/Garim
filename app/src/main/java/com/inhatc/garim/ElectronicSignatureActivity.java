@@ -37,14 +37,14 @@ public class ElectronicSignatureActivity extends AppCompatActivity {
         mypageFragment = new MypageFragment();
         btnBack = (ImageButton)findViewById(R.id.btnBack);
 
-        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-        arrayList = new ArrayList<>();  //Ordinance객체 어댑터로 담을 리스트
-
-        database = FirebaseDatabase.getInstance();  //firebase db연동
-        databaseReference = database.getReference("ordinance");  //db 테이블 연결
+//        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
+//        recyclerView.setHasFixedSize(true);
+//        layoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(layoutManager);
+//        arrayList = new ArrayList<>();  //Ordinance객체 어댑터로 담을 리스트
+//
+//        database = FirebaseDatabase.getInstance();  //firebase db연동
+//        databaseReference = database.getReference("ordinance");  //db 테이블 연결
 
         btnBack.setOnClickListener(new View.OnClickListener() {
 
