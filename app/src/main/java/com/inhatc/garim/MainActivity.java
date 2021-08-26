@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private OrdinanceStatusFragment ordinanceStatusFragment;
     private ApplyFragment applyFragment;
     private MypageFragment mypageFragment;
+    private FidoFragment fidoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         ordinanceStatusFragment = new OrdinanceStatusFragment();
         applyFragment = new ApplyFragment();
         mypageFragment = new MypageFragment();
+        fidoFragment = new FidoFragment();
 
         Intent mainIntent = getIntent();
         String getMove = mainIntent.getStringExtra("move");
@@ -53,6 +55,11 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     case R.id.tabMypage:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, mypageFragment).commit();
+
+                        return true;
+
+                    case R.id.tabFido:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fidoFragment).commit();
 
                         return true;
                 }
