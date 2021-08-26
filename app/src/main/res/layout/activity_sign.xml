@@ -35,10 +35,10 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Sign in Progress"
+            android:text="progress"
             android:textAlignment="center"
-            android:textColor="#00d76b"
-            android:textSize="20dp"
+            android:textColor="#00BCD4"
+            android:textSize="14dp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -56,7 +56,7 @@
             android:padding="10dp"
             android:text="Sign Period"
             android:textColor="@color/navy"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
@@ -67,7 +67,7 @@
             android:gravity="center"
             android:text="2021.06.09"
             android:textAlignment="center"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
@@ -89,7 +89,7 @@
             android:gravity="center"
             android:text="2021.11.11"
             android:textAlignment="center"
-            android:textSize="20dp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <ImageButton
@@ -105,7 +105,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:orientation="vertical">
 
@@ -143,7 +143,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="390dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/edge"
             android:orientation="vertical">
 
@@ -158,7 +158,7 @@
             <TextView
                 android:id="@+id/txtReason"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:layout_marginBottom="10dp"
                 android:scrollbars="vertical"
                 android:text="reason for proposal" />
@@ -173,7 +173,7 @@
             <TextView
                 android:id="@+id/txtContent"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:layout_marginBottom="10dp"
                 android:scrollbars="vertical"
                 android:text="ordinance content" />
@@ -183,7 +183,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnElecSign"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
