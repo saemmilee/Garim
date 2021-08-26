@@ -5,12 +5,19 @@
       <map>
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_applicationstatus.xml" value="0.1" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_fido.xml" value="0.1203125" />
+        <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_register.xml" value="0.126171875" />
+        <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_register_fido.xml" value="0.126171875" />
+        <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_sign.xml" value="0.1" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_signature_fido.xml" value="0.1" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_signature_finish.xml" value="0.126171875" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_signature_residence.xml" value="0.1" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_signinfo.xml" value="0.1" />
+        <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_write_fido.xml" value="0.126171875" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_write_finish.xml" value="0.126171875" />
+        <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_write_residence.xml" value="0.1" />
+        <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/application_list.xml" value="0.1" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/ordinance_list.xml" value="0.1" />
+        <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/signature_list.xml" value="0.137109375" />
       </map>
     </option>
   </component>
