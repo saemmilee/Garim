@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_applicationstatus.xml" value="0.1" />
+        <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_electronicsignature.xml" value="0.1" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_fido.xml" value="0.1203125" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_register.xml" value="0.126171875" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_register_fido.xml" value="0.126171875" />
@@ -16,8 +17,10 @@
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_write_finish.xml" value="0.126171875" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/activity_write_residence.xml" value="0.1" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/application_list.xml" value="0.1" />
+        <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/fragment_apply.xml" value="0.1" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/ordinance_list.xml" value="0.1" />
         <entry key="..\:/2021_FIDO/Garim/app/src/main/res/layout/signature_list.xml" value="0.137109375" />
+        <entry key="..\:/2021_FIDO/Garim/app/src/main/res/menu/bottom_menu.xml" value="0.11319444444444444" />
       </map>
     </option>
   </component>

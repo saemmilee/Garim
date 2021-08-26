@@ -161,6 +161,7 @@
                         android:layout_weight="1"
                         android:background="@color/navy"
                         android:text="Submit"
+                        android:textSize="12sp"
                         android:textColor="#FFFFFF" />
                 </LinearLayout>
 

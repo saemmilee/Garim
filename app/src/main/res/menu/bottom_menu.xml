@@ -26,12 +26,4 @@
         android:title="mypage">
     </item>
 
-    <item
-        android:id="@+id/tabFido"
-        app:showAsAction="always"
-        android:enabled="true"
-        android:icon="@drawable/fingerprint"
-        android:title="fido">
-    </item>
-
 </menu>

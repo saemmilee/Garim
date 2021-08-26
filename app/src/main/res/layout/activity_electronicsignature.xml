@@ -50,7 +50,10 @@
                 android:id="@+id/tblResults"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@drawable/radius">
 
                 <TableRow
@@ -105,7 +108,7 @@
                         android:layout_height="match_parent"
                         android:layout_weight="4"
                         android:gravity="center"
-                        android:text="Framework Ordinance for the Protection and Promotion of Labor Human Rights in Daejeon City"
+                        android:text="Daejeon City Labor Human Rights Protection Ordinance"
                         android:textColor="@color/black" />
 
                     <TextView

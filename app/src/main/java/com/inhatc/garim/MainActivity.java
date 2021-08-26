@@ -57,11 +57,6 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, mypageFragment).commit();
 
                         return true;
-
-                    case R.id.tabFido:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, fidoFragment).commit();
-
-                        return true;
                 }
                 return false;
             }
