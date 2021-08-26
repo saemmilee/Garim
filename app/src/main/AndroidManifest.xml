@@ -37,6 +37,7 @@
         <activity android:name=".WriteFinishActivity"></activity>
         <activity android:name=".SignatureFidoActivity"></activity>
         <activity android:name=".FidoResidenceActivity"></activity>
+        <activity android:name=".SignCancelActivity"></activity>
     </application>
 
 </manifest>
